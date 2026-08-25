@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ============ SECURITY HEADERS ============ -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        script-src 'self' 'unsafe-inline' https://connect.facebook.net https://www.facebook.com;
+        style-src 'self' 'unsafe-inline' https://fonts.cdnfonts.com;
+        font-src 'self' https://fonts.cdnfonts.com https://fonts.gstatic.com data:;
+        img-src 'self' data: https://www.facebook.com https://*.facebook.com;
+        connect-src 'self' https://connect.facebook.net https://www.facebook.com https://*.facebook.com;
+        form-action https://script.google.com https://pay.kirvano.com;
+        frame-src https://script.google.com https://www.facebook.com;
+        frame-ancestors 'none';
+        base-uri 'self';
+        object-src 'none';
+        upgrade-insecure-requests;
+    ">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), bluetooth=()">
+    <meta name="robots" content="index, follow">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#000000">
+    <meta name="color-scheme" content="dark">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512.png">
+
+    <!-- Preconnect & preload: get critical resources flying as soon as DNS resolves -->
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin>
+    <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+    <link rel="dns-prefetch" href="https://script.google.com">
+    <link rel="dns-prefetch" href="https://pay.kirvano.com">
+    <link rel="preload" as="image" href="assets/Robo%20png.png?v=20260514b" fetchpriority="high" media="(min-width: 901px)">
+
+    <meta name="description" content="De LeOn: a camada de inteligência por trás da sua empresa. Implementação de IA como sistema operacional para founders e PMEs. Closed loops em cada processo crítico.">
+    <meta name="keywords" content="De LeOn, sistema operacional IA, closed loop, AI-native, implementação IA, camada de inteligência">
+    <meta property="og:title" content="De LeOn: A camada de inteligência por trás da sua empresa">
+    <meta property="og:description" content="IA não é uma ferramenta. É o sistema operacional em que sua empresa roda. Para founders e PMEs até ~50 pessoas.">
+    <meta property="og:type" content="website">
+    <title>De LeOn: A camada de inteligência por trás da sua empresa</title>
+    <!-- Detect low-end hardware to disable heavy animations on slow desktops -->
+    <script>
+    (function() {
+        var mem = navigator.deviceMemory;
+        var cores = navigator.hardwareConcurrency;
+        var saveData = navigator.connection && navigator.connection.saveData;
+        if ((mem && mem < 4) || (cores && cores < 4) || saveData) {
+            document.documentElement.classList.add('low-perf');
+        }
+    })();
+    </script>
+
+    <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260705h">
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1962935614587761');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1962935614587761&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+</head>
+<body class="is-loading">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+
+    <div class="site-bg" aria-hidden="true">
+        <span class="site-bg-orb site-bg-orb-1"></span>
+        <span class="site-bg-orb site-bg-orb-2"></span>
+        <span class="site-bg-orb site-bg-orb-3"></span>
+        <span class="site-bg-grid"></span>
+    </div>
+
+    <div class="intro-overlay" id="introOverlay" aria-hidden="true">
+        <div class="intro-rotator">
+            <span class="intro-phrase intro-phrase-mais">
+                <span class="mais-static">Mais</span>
+                <span class="mais-words">
+                    <span class="mais-word">Velocidade.</span>
+                    <span class="mais-word">Contexto.</span>
+                    <span class="mais-word">Organização.</span>
+                </span>
+            </span>
+            <span class="intro-phrase">E agora mais inteligente.</span>
+            <span class="intro-phrase">Tudo com <em>De LeOn</em>.</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero">
+            <span class="hero-top-light" aria-hidden="true"></span>
+            <span class="hero-side-light" aria-hidden="true"></span>
+            <img class="hero-bg-image" src="assets/Robo%20png.png?v=20260514b" alt="" aria-hidden="true" width="1024" height="1024" decoding="async" fetchpriority="high" />
+            <div class="hero-overlay" aria-hidden="true"></div>
+            <div class="hero-glitch" aria-hidden="true">
+                <span class="glitch-dot g-1"></span>
+                <span class="glitch-dot g-3"></span>
+                <span class="glitch-dot g-5"></span>
+                <span class="glitch-dot g-7"></span>
+                <span class="glitch-shift g-s1"></span>
+                <span class="glitch-shift g-s3"></span>
+                <span class="glitch-scan glitch-scan-1"></span>
+            </div>
+            <div class="hero-particles" aria-hidden="true">
+                <svg class="hero-constellation" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <g class="constellation-lines" stroke="rgba(255,255,255,0.18)" stroke-width="1" fill="none">
+                        <line x1="120" y1="180" x2="280" y2="120"/>
+                        <line x1="280" y1="120" x2="450" y2="240"/>
+                        <line x1="450" y1="240" x2="180" y2="380"/>
+                        <line x1="620" y1="100" x2="820" y2="260"/>
+                        <line x1="820" y1="260" x2="1020" y2="180"/>
+                        <line x1="1020" y1="180" x2="1240" y2="300"/>
+                        <line x1="1100" y1="480" x2="1380" y2="420"/>
+                        <line x1="340" y1="580" x2="560" y2="660"/>
+                        <line x1="560" y1="660" x2="760" y2="540"/>
+                        <line x1="760" y1="540" x2="940" y2="720"/>
+                        <line x1="940" y1="720" x2="1180" y2="760"/>
+                        <line x1="180" y1="380" x2="340" y2="580"/>
+                    </g>
+                    <g class="constellation-stars" fill="#fff">
+                        <circle cx="120"  cy="180" r="1.6"/>
+                        <circle cx="280"  cy="120" r="2.2"/>
+                        <circle cx="450"  cy="240" r="1.4"/>
+                        <circle cx="180"  cy="380" r="1.8"/>
+                        <circle cx="620"  cy="100" r="2"/>
+                        <circle cx="820"  cy="260" r="1.6"/>
+                        <circle cx="1020" cy="180" r="2.4"/>
+                        <circle cx="1240" cy="300" r="1.5"/>
+                        <circle cx="1100" cy="480" r="1.8"/>
+                        <circle cx="1380" cy="420" r="2"/>
+                        <circle cx="340"  cy="580" r="1.4"/>
+                        <circle cx="560"  cy="660" r="2.2"/>
+                        <circle cx="760"  cy="540" r="1.6"/>
+                        <circle cx="940"  cy="720" r="1.8"/>
+                        <circle cx="1180" cy="760" r="1.5"/>
+                    </g>
+                </svg>
+
+                <span class="particle p-1"></span>
+                <span class="particle p-3"></span>
+                <span class="particle p-6"></span>
+                <span class="particle particle-pulse p-11"></span>
+
+            </div>
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-eyebrow">
+                        <strong>De LeOn</strong>
+                        <span class="hero-eyebrow-line"></span>
+                        <span>Automação e IA</span>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="hero-title-line"><span class="word">Escale</span> <span class="word">o</span> <span class="word">seu</span></span>
+                        <span class="hero-title-line"><span class="word">negócio</span> <span class="word">com</span> <span class="word">o</span></span>
+                        <span class="hero-title-line"><em><span class="word">poder</span> <span class="word">da</span> <span class="word">IA.</span></em></span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Automações inteligentes, agentes virtuais e soluções sob medida para alavancar seus resultados.
+                    </p>
+
+                    <div class="hero-cta">
+                        <a href="#captura" class="btn btn-tech">
+                            SOLICITAR ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- MÉTODO — TABLETS SHOWCASE -->
+        <section class="method-showcase">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Soluções completas em Inteligência Artificial</h2>
+                    <p class="section-sub">Desenvolvemos sistemas inteligentes para otimizar tempo e multiplicar os lucros da sua empresa.</p>
+                </div>
+
+                <div class="tablets-stage" id="tabletsStage">
+                    <div class="tablet tablet-left">
+                        <div class="tablet-frame">
+                            <img src="assets/ai_project_1.jpg" alt="Projeto com IA - Postagem Viral" loading="lazy" decoding="async" width="730" height="560" style="object-fit: cover;" />
+                            <span class="tablet-progress" aria-hidden="true"><span class="tablet-progress-fill"></span></span>
+                        </div>
+                    </div>
+                    <div class="tablet tablet-center">
+                        <div class="tablet-frame">
+                            <img src="assets/ai_project_2.jpg" alt="Dashboard de Projetos com IA" loading="lazy" decoding="async" width="730" height="560" style="object-fit: cover;" />
+                            <span class="tablet-progress" aria-hidden="true"><span class="tablet-progress-fill"></span></span>
+                        </div>
+                    </div>
+                    <div class="tablet tablet-right">
+                        <div class="tablet-frame">
+                            <img src="assets/ai_project_3.jpg" alt="Feed viral no Instagram com Arte IA" loading="lazy" decoding="async" width="730" height="560" style="object-fit: cover;" />
+                            <span class="tablet-progress" aria-hidden="true"><span class="tablet-progress-fill"></span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="method-cta">
+                    <a href="#captura" class="btn btn-tech">
+                        QUERO CONHECER
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA — terminal showcase -->
+        <section class="cta-section">
+            <div class="container cta-grid">
+                <div class="cta-content">
+                    <h2>Pronto para modernizar seu negócio?</h2>
+                    <p>Fale com nossa equipe e descubra como a IA pode ajudar sua empresa a escalar e automatizar rotinas.</p>
+                </div>
+
+                <div class="cta-visual">
+                    <div class="checkout-form-wrap" id="captura">
+                        <div class="checkout-form">
+                            <div class="checkout-form-head">
+                                <span class="eyebrow">Atendimento Personalizado</span>
+                                <h3>Agende uma consultoria</h3>
+                                <p>Avaliamos os processos da sua empresa e criamos um plano de automação sob medida com Inteligência Artificial.</p>
+                            </div>
+
+                            <a href="https://wa.me/5591992807333"
+                               class="btn btn-tech btn-tech--light checkout-submit js-checkout-cta"
+                               rel="noopener" target="_blank">
+                                FALAR COM UM ESPECIALISTA
+                            </a>
+
+                            <p class="checkout-fineprint">Entraremos em contato o mais rápido possível.</p>
+                            <p class="checkout-versionprice">Soluções adaptadas ao seu modelo de negócio, com foco em resultados reais e escalabilidade.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="cta-terminal-wrap" aria-hidden="true">
+                            <div class="code-terminal" id="codeTerminal">
+                                <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+                                    <symbol id="ic-folder" viewBox="0 0 16 13">
+                                        <path d="M1 2.5C1 1.67 1.67 1 2.5 1H5.5L7 2.5H13.5C14.33 2.5 15 3.17 15 4V10.5C15 11.33 14.33 12 13.5 12H2.5C1.67 12 1 11.33 1 10.5V2.5Z"
+                                            fill="currentColor" fill-opacity="0.22"
+                                            stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+                                    </symbol>
+                                    <symbol id="ic-file" viewBox="0 0 12 14">
+                                        <path d="M1.5 1H7.5L10.5 4V13H1.5V1Z"
+                                            fill="currentColor" fill-opacity="0.08"
+                                            stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+                                        <path d="M7.5 1V4H10.5"
+                                            fill="none" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/>
+                                    </symbol>
+                                    <symbol id="ic-dotfolder" viewBox="0 0 16 13">
+                                        <path d="M1 2.5C1 1.67 1.67 1 2.5 1H5.5L7 2.5H13.5C14.33 2.5 15 3.17 15 4V10.5C15 11.33 14.33 12 13.5 12H2.5C1.67 12 1 11.33 1 10.5V2.5Z"
+                                            fill="currentColor" fill-opacity="0.12"
+                                            stroke="currentColor" stroke-width="1" stroke-linejoin="round" stroke-dasharray="2 1.5"/>
+                                    </symbol>
+                                </svg>
+
+                                <div class="code-header">
+                                    <span class="code-dot"></span>
+                                    <span class="code-dot"></span>
+                                    <span class="code-dot"></span>
+                                    <span class="code-filename">~/De LeOn</span>
+                                    <span class="code-header-meta"><span class="hm-dot"></span> 3 alterações · main</span>
+                                </div>
+
+                                <div class="code-main">
+                                    <aside class="code-activity-bar">
+                                        <button class="ab-item is-active" aria-label="Explorer">
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+                                                <path d="M2 5C2 4.4 2.4 4 3 4H7L9 6H17C17.6 6 18 6.4 18 7V15C18 15.6 17.6 16 17 16H3C2.4 16 2 15.6 2 15V5Z" stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                        <button class="ab-item" aria-label="Search">
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+                                                <circle cx="8.5" cy="8.5" r="5"/>
+                                                <path d="M12.5 12.5L17 17" stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                        <button class="ab-item ab-item-git" aria-label="Source Control">
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+                                                <circle cx="5" cy="5" r="2"/>
+                                                <circle cx="15" cy="10" r="2"/>
+                                                <circle cx="5" cy="15" r="2"/>
+                                                <path d="M5 7V13" stroke-linecap="round"/>
+                                                <path d="M7 5H10C12 5 13 6.5 13 8.5" stroke-linecap="round"/>
+                                            </svg>
+                                            <span class="ab-badge">3</span>
+                                        </button>
+                                        <button class="ab-item" aria-label="Extensions">
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+                                                <rect x="2.5" y="2.5" width="6.5" height="6.5" rx="1"/>
+                                                <rect x="11" y="2.5" width="6.5" height="6.5" rx="1"/>
+                                                <rect x="2.5" y="11" width="6.5" height="6.5" rx="1"/>
+                                                <rect x="11" y="11" width="6.5" height="6.5" rx="1"/>
+                                            </svg>
+                                        </button>
+                                        <button class="ab-item ab-item-run" aria-label="Run">
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+                                                <polygon points="6,4 16,10 6,16" fill="currentColor" stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
+                                        <div class="ab-spacer"></div>
+                                        <button class="ab-item" aria-label="Account">
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+                                                <circle cx="10" cy="7" r="3"/>
+                                                <path d="M4 17C4 14 6.8 12.5 10 12.5C13.2 12.5 16 14 16 17" stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                        <button class="ab-item" aria-label="Settings">
+                                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4">
+                                                <circle cx="10" cy="10" r="2.5"/>
+                                                <path d="M10 2V4 M10 16V18 M2 10H4 M16 10H18 M4.2 4.2L5.6 5.6 M14.4 14.4L15.8 15.8 M4.2 15.8L5.6 14.4 M14.4 5.6L15.8 4.2" stroke-linecap="round"/>
+                                            </svg>
+                                        </button>
+                                    </aside>
+                                    <div class="code-content">
+                                        <div class="code-toolbar">
+                                            <span class="toolbar-title">EXPLORER</span>
+                                            <span class="toolbar-path">~ / projetos / De LeOn</span>
+                                            <span class="toolbar-actions">
+                                                <span class="toolbar-action">+</span>
+                                                <span class="toolbar-action">↻</span>
+                                                <span class="toolbar-action">⋯</span>
+                                            </span>
+                                        </div>
+
+                                        <div class="code-body folder-tree" id="folderTree">
+                                            <ul class="tree-list">
+                                                <li class="tree-item" data-default="open">
+                                                    <div class="tree-line">
+                                                        <span class="tree-toggle">▸</span>
+                                                        <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                        <span class="tree-name">_contexto/</span>
+                                                        <span class="tree-comment">·quem você é, ICP, oferta</span>
+                                                    </div>
+                                                    <ul class="tree-children">
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">empresa.md</span>
+                                                            <span class="tree-mod tree-mod-updated">M</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">preferencias.md</span>
+                                                            <span class="tree-comment">·tom de voz, marca</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">estrategia.md</span>
+                                                            <span class="tree-comment">·foco e prazos</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="tree-item">
+                                                    <div class="tree-line">
+                                                        <span class="tree-toggle">▸</span>
+                                                        <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                        <span class="tree-name">clientes/</span>
+                                                        <span class="tree-comment">·um contexto por cliente</span>
+                                                    </div>
+                                                    <ul class="tree-children">
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">nike/</span>
+                                                            <span class="tree-mod tree-mod-updated">M</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">adidas/</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">burger-king/</span>
+                                                            <span class="tree-mod tree-mod-added">+</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="tree-item">
+                                                    <div class="tree-line">
+                                                        <span class="tree-toggle">▸</span>
+                                                        <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                        <span class="tree-name">marca/</span>
+                                                        <span class="tree-comment">·design system, logos</span>
+                                                    </div>
+                                                    <ul class="tree-children">
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">paleta.css</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">tipografia.md</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">assets/</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="tree-item">
+                                                    <div class="tree-line">
+                                                        <span class="tree-toggle">▸</span>
+                                                        <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                        <span class="tree-name">conteudo/</span>
+                                                        <span class="tree-comment">·carrosséis, posts, copies</span>
+                                                    </div>
+                                                    <ul class="tree-children">
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">carrosseis/</span>
+                                                            <span class="tree-mod tree-mod-added">+</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">posts/</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">copies/</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="tree-item">
+                                                    <div class="tree-line">
+                                                        <span class="tree-toggle">▸</span>
+                                                        <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                        <span class="tree-name">ads/</span>
+                                                        <span class="tree-comment">·campanhas, criativos, copies</span>
+                                                    </div>
+                                                    <ul class="tree-children">
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">campanhas/</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">criativos/</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">copies-ads.md</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="tree-item">
+                                                    <div class="tree-line">
+                                                        <span class="tree-toggle">▸</span>
+                                                        <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                        <span class="tree-name">propostas/</span>
+                                                        <span class="tree-comment">·modelos comerciais</span>
+                                                    </div>
+                                                    <ul class="tree-children">
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">template-base.md</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">pricing.json</span>
+                                                        </li>
+                                                        <li>
+                                                            <svg class="tree-icon tree-icon-file"><use href="#ic-file"/></svg>
+                                                            <span class="tree-leaf">garantia.md</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="tree-item tree-item-claude">
+                                                    <div class="tree-line">
+                                                        <span class="tree-toggle">▸</span>
+                                                        <svg class="tree-icon tree-icon-dot"><use href="#ic-dotfolder"/></svg>
+                                                        <span class="tree-name">.claude/</span>
+                                                        <span class="tree-comment">·skills + commands do De LeOn</span>
+                                                    </div>
+                                                    <ul class="tree-children">
+                                                        <li class="tree-subfolder">
+                                                            <span class="tree-toggle-mini">▾</span>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-name">skills/</span>
+                                                            <span class="tree-comment">·skills personalizadas</span>
+                                                        </li>
+                                                        <li class="tree-deep">
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">gerador-carrossel/</span>
+                                                            <span class="tree-mod tree-mod-added">+</span>
+                                                        </li>
+                                                        <li class="tree-deep">
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">proposta-comercial/</span>
+                                                        </li>
+                                                        <li class="tree-deep">
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-leaf">resposta-atendimento/</span>
+                                                        </li>
+                                                        <li class="tree-subfolder">
+                                                            <span class="tree-toggle-mini">▸</span>
+                                                            <svg class="tree-icon"><use href="#ic-folder"/></svg>
+                                                            <span class="tree-name">commands/</span>
+                                                            <span class="tree-comment">·atalhos do dia a dia</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="code-prompt">
+                                            <span class="prompt-sigil">›</span>
+                                            <span class="prompt-cmd"><span class="prompt-cmd-bin">De LeOn</span> sync <span class="prompt-flag">--all</span></span>
+                                            <span class="prompt-cursor"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="code-status">
+                                    <span class="status-item status-branch">main</span>
+                                    <span class="status-divider"></span>
+                                    <span class="status-item status-git-changes">3 alterações</span>
+                                    <span class="status-divider"></span>
+                                    <span class="status-item status-success"><span class="status-dot"></span>0 problemas</span>
+                                    <span class="status-spacer"></span>
+                                    <span class="status-item">UTF-8</span>
+                                    <span class="status-divider"></span>
+                                    <span class="status-item">LF</span>
+                                    <span class="status-divider"></span>
+                                    <span class="status-item">Spaces: 2</span>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROVAS SOCIAIS -->
+        <section class="faq proof" id="resultados">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Resultados</span>
+                    <h2>Resultado da semana</h2>
+                </div>
+
+                <div class="method-cta proof-actions">
+                    <a href="#captura" class="btn btn-tech btn-tech--light">QUERO SER O PRÓXIMO</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- MÓDULOS (compacto) -->
+        <section class="faq" id="modulos">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Nossos Serviços</span>
+                    <h2>Como podemos ajudar sua empresa</h2>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>1 · Automação de Atendimento</summary>
+                        <p>Desenvolvemos assistentes virtuais (chatbots) inteligentes para WhatsApp e sites, que atendem seus clientes 24h por dia, tiram dúvidas e até fecham vendas.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>2 · Geração de Conteúdo</summary>
+                        <p>Criamos sistemas de IA personalizados para gerar posts, copys e roteiros de forma escalável e com a voz da sua marca.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>3 · Análise de Dados e BI</summary>
+                        <p>Implementamos painéis inteligentes que leem seus dados de vendas e operações, trazendo insights claros em tempo real.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>4 · Integrações de Sistemas</summary>
+                        <p>Conectamos CRMs, ERPs e ferramentas de marketing usando IA para automatizar tarefas repetitivas e reduzir custos operacionais.</p>
+                    </details>
+                </div>
+
+                <div class="method-cta">
+                    <a href="https://wa.me/5591992807333" class="btn btn-tech" target="_blank">AGENDAR CONSULTORIA GRÁTIS</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <div class="container">
+                <div class="section-header">
+                    <span class="eyebrow">Dúvidas frequentes</span>
+                    <h2>Tudo o que você precisa saber</h2>
+                </div>
+
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>O que exatamente a De LeOn faz?</summary>
+                        <p>A De LeOn é uma assessoria especializada em Inteligência Artificial. Nós mapeamos as ineficiências da sua empresa e desenvolvemos soluções de automação e agentes de IA para otimizar seus processos, reduzir custos e aumentar as vendas.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Funciona para a minha empresa?</summary>
+                        <p>Sim! Atendemos desde pequenas empresas locais até grandes operações, prestadores de serviços, agências de marketing e lojas virtuais. Nossas soluções são 100% customizadas para o seu modelo de negócio.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Como começa um projeto?</summary>
+                        <p>Tudo começa com uma reunião de diagnóstico gratuita. Entendemos as dores do seu negócio e elaboramos uma proposta de implementação. Após a aprovação, nossa equipe cuida de todo o desenvolvimento e integração.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Quanto tempo até ver resultado?</summary>
+                        <p>A maioria das nossas automações entra no ar em 1 a 3 semanas. Assim que ativadas, você já percebe a economia de tempo e o aumento na velocidade de resposta aos clientes.</p>
+                    </details>
+                </div>
+
+                <div class="method-cta">
+                    <a href="https://wa.me/5591992807333" class="btn btn-tech" target="_blank">FALAR COM UM ESPECIALISTA</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p class="footer-legal">Desenvolvedor: Douglas De leon</p>
+            <p class="footer-contact"><a href="tel:91992807333">Telefone: 91992807333</a> | <a href="mailto:douglasdeleonscruz@gmail.com">E-mail: douglasdeleonscruz@gmail.com</a></p>
+            <p class="footer-copy">© <span id="year">2026</span> deleonfreelancer.com.br. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js?v=20260705f" defer></script>
+</body>
+</html>
