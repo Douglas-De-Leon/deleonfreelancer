@@ -1,0 +1,8 @@
+{
+  "name": "De LeOn",
+  "description": "A camada de inteligência por trás da sua empresa. Implementação de IA como sistema operacional para founders e PMEs.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
