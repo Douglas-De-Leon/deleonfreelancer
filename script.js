@@ -427,22 +427,65 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     const tablets = Array.from(stage.querySelectorAll('.tablet'));
     const tabBtns = Array.from(document.querySelectorAll('.tech-tab-btn'));
+    const tabsNav = document.querySelector('.tech-tabs-nav');
     const dots = Array.from(document.querySelectorAll('.tablet-dot'));
     const prevBtn = document.getElementById('tabletPrevBtn');
     const nextBtn = document.getElementById('tabletNextBtn');
+    const showcaseSection = document.getElementById('tecnologias') || stage.closest('.method-showcase') || stage;
 
     if (!tablets.length) return;
 
     let currentIndex = 0;
     const total = tablets.length;
-    let autoPlayTimer = null;
     let pauseUntil = 0;
+    let isSectionInView = true;
 
-    const updateClasses = (index) => {
+    // Dados das 6 soluções para visualização detalhada / lightbox
+    const techData = [
+        {
+            title: '01 · Atendimento & Triagem Automática 24/7',
+            desc: 'Agente conversacional de IA para WhatsApp que atende cotações, qualifica e transfere chamados urgentes instantaneamente.',
+            img: 'assets/ai_tech_1.jpg',
+            appId: '0'
+        },
+        {
+            title: '02 · Extração de Notas Fiscais & Conciliação ERP',
+            desc: 'OCR inteligente com IA que lê PDFs e comprovantes, extrai CNPJ, valores e realiza conciliação sem digitação manual.',
+            img: 'assets/ai_tech_2.jpg',
+            appId: '1'
+        },
+        {
+            title: '03 · Agendamento & Calendário Autônomo',
+            desc: 'Sincronização bidirecional com Google Calendar e régua automática de confirmações anti-falta via WhatsApp.',
+            img: 'assets/ai_tech_3.jpg',
+            appId: '2'
+        },
+        {
+            title: '04 · Gerador de Propostas Comerciais & PDFs',
+            desc: 'Transforma anotações e áudios de reunião em propostas comerciais timbradas com link de assinatura em 5 segundos.',
+            img: 'assets/ai_tech_4.jpg',
+            appId: '3'
+        },
+        {
+            title: '05 · Qualificação de Leads & CRM com Lead Scoring',
+            desc: 'Algoritmo preditivo que pontua leads quentes no funil e notifica a equipe de vendas com o pitch de abordagem ideal.',
+            img: 'assets/ai_tech_5.jpg',
+            appId: '4'
+        },
+        {
+            title: '06 · Dashboard Executivo & Resumos Diários de IA',
+            desc: 'Consolidação de métricas e envio de resumos executivos diários direto no WhatsApp dos sócios e diretores.',
+            img: 'assets/ai_tech_6.jpg',
+            appId: '5'
+        }
+    ];
+
+    const updateClasses = (index, isUserAction = false) => {
         currentIndex = (index + total) % total;
         const prevIndex = (currentIndex - 1 + total) % total;
         const nextIndex = (currentIndex + 1) % total;
 
+        // Atualiza visibilidade dos 6 slides
         tablets.forEach((t, i) => {
             t.classList.remove('is-active', 'is-prev', 'is-next');
             if (i === currentIndex) {
@@ -454,102 +497,207 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             }
         });
 
+        // Atualiza botões das abas
         tabBtns.forEach((btn, i) => {
             const active = i === currentIndex;
             btn.classList.toggle('is-active', active);
             btn.setAttribute('aria-selected', active ? 'true' : 'false');
-            if (active && window.innerWidth <= 900) {
-                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
         });
 
+        // No mobile, rola APENAS o container horizontal das abas SEM causar scroll na janela (zero salto na página)
+        if (isUserAction && tabsNav && window.innerWidth <= 900) {
+            const activeBtn = tabBtns[currentIndex];
+            if (activeBtn) {
+                const scrollLeft = activeBtn.offsetLeft - (tabsNav.clientWidth - activeBtn.clientWidth) / 2;
+                tabsNav.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
+            }
+        }
+
+        // Atualiza bolinhas de paginação
         dots.forEach((dot, i) => {
             dot.classList.toggle('is-active', i === currentIndex);
         });
+    };
 
-        // Mobile scroll sync
-        if (window.innerWidth <= 900) {
-            const activeTablet = tablets[currentIndex];
-            if (activeTablet) {
-                const targetLeft = activeTablet.offsetLeft - (stage.clientWidth - activeTablet.clientWidth) / 2;
-                stage.scrollTo({ left: targetLeft, behavior: 'smooth' });
-            }
+    const goToSlide = (idx, userTriggered = true) => {
+        if (userTriggered) {
+            pauseUntil = Date.now() + 10000; // pausa 10s após interação
         }
+        updateClasses(idx, userTriggered);
     };
 
-    const goToSlide = (idx) => {
-        pauseUntil = Date.now() + 7000;
-        updateClasses(idx);
-    };
-
-    // Tabs click
+    // Navegação por abas superiores
     tabBtns.forEach((btn) => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
             const idx = parseInt(btn.dataset.index, 10);
-            if (!isNaN(idx)) goToSlide(idx);
+            if (!isNaN(idx)) goToSlide(idx, true);
         });
     });
 
-    // Dots click
+    // Navegação por dots
     dots.forEach((dot) => {
-        dot.addEventListener('click', () => {
+        dot.addEventListener('click', (e) => {
+            e.preventDefault();
             const idx = parseInt(dot.dataset.index, 10);
-            if (!isNaN(idx)) goToSlide(idx);
+            if (!isNaN(idx)) goToSlide(idx, true);
         });
     });
 
-    // Arrows
-    if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-    if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+    // Setas Anterior / Próximo
+    if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlide(currentIndex - 1, true);
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlide(currentIndex + 1, true);
+        });
+    }
 
-    // Clicking prev/next tablet on desktop
+    // Modal de Lightbox / Zoom
+    const lightboxModal = document.getElementById('techLightboxModal');
+    const lightboxImg = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+    const lightboxLink = document.getElementById('lightboxLiveLink');
+    const lightboxClose = document.getElementById('lightboxCloseBtn');
+
+    const openLightbox = (idx) => {
+        if (!lightboxModal || !techData[idx]) return;
+        const data = techData[idx];
+        if (lightboxImg) {
+            lightboxImg.src = data.img;
+            lightboxImg.alt = data.title;
+        }
+        if (lightboxTitle) {
+            lightboxTitle.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg> ${data.title}`;
+        }
+        if (lightboxDesc) {
+            lightboxDesc.textContent = data.desc;
+        }
+        if (lightboxLink) {
+            lightboxLink.href = `simulador.html?app=${data.appId}`;
+        }
+        lightboxModal.classList.add('is-open');
+        lightboxModal.setAttribute('aria-hidden', 'false');
+        pauseUntil = Date.now() + 60000; // pausa o autoplay enquanto visualiza
+    };
+
+    const closeLightbox = () => {
+        if (!lightboxModal) return;
+        lightboxModal.classList.remove('is-open');
+        lightboxModal.setAttribute('aria-hidden', 'true');
+        pauseUntil = Date.now() + 5000;
+    };
+
+    if (lightboxClose) {
+        lightboxClose.addEventListener('click', closeLightbox);
+    }
+    if (lightboxModal) {
+        lightboxModal.addEventListener('click', (e) => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+    }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('is-open')) {
+            closeLightbox();
+        }
+    });
+
+    // Clique nas imagens e nos tablets
     tablets.forEach((t, i) => {
-        t.addEventListener('click', () => {
-            if (t.classList.contains('is-prev') || t.classList.contains('is-next')) {
-                goToSlide(i);
-            }
-        });
-    });
+        const frame = t.querySelector('.tablet-frame');
+        const zoomHint = t.querySelector('.tablet-zoom-hint');
 
-    // Mobile scroll detection
-    let scrollTimeout;
-    stage.addEventListener('scroll', () => {
-        if (window.innerWidth > 900) return;
-        clearTimeout(scrollTimeout);
-        scrollTimeout = setTimeout(() => {
-            const center = stage.scrollLeft + stage.clientWidth / 2;
-            let closestIdx = 0;
-            let closestDist = Infinity;
-            tablets.forEach((t, i) => {
-                const tCenter = t.offsetLeft + t.clientWidth / 2;
-                const dist = Math.abs(tCenter - center);
-                if (dist < closestDist) {
-                    closestDist = dist;
-                    closestIdx = i;
+        if (zoomHint) {
+            zoomHint.addEventListener('click', (e) => {
+                e.stopPropagation();
+                openLightbox(i);
+            });
+        }
+
+        if (frame) {
+            frame.addEventListener('click', (e) => {
+                // Se clicou no botão de teste ao vivo interno, deixa navegar normalmente
+                if (e.target.closest('.btn-tech') || e.target.tagName === 'A') {
+                    return;
+                }
+                if (t.classList.contains('is-active')) {
+                    openLightbox(i);
+                } else if (t.classList.contains('is-prev') || t.classList.contains('is-next')) {
+                    goToSlide(i, true);
                 }
             });
-            if (closestIdx !== currentIndex) {
-                currentIndex = closestIdx;
-                tabBtns.forEach((btn, i) => btn.classList.toggle('is-active', i === currentIndex));
-                dots.forEach((dot, i) => dot.classList.toggle('is-active', i === currentIndex));
-            }
-        }, 80);
-    }, { passive: true });
-
-    // Interaction pause
-    ['pointerdown', 'touchstart', 'mouseenter'].forEach((ev) => {
-        stage.addEventListener(ev, () => { pauseUntil = Date.now() + 8000; }, { passive: true });
+        }
     });
 
-    // Autoplay
-    autoPlayTimer = setInterval(() => {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        if (Date.now() < pauseUntil) return;
-        updateClasses(currentIndex + 1);
-    }, 4800);
+    // Suporte a Swipe no Mobile (Arrastar com o dedo)
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
 
-    // Initial setup
-    updateClasses(0);
+    stage.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches[0]) {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            pauseUntil = Date.now() + 10000;
+        }
+    }, { passive: true });
+
+    stage.addEventListener('touchend', (e) => {
+        if (e.changedTouches && e.changedTouches[0]) {
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+            const diffX = touchStartX - touchEndX;
+            const diffY = Math.abs(touchStartY - touchEndY);
+
+            // Se o movimento foi predominantemente horizontal e maior que 40px
+            if (Math.abs(diffX) > 40 && Math.abs(diffX) > diffY) {
+                if (diffX > 0) {
+                    // Deslizou para a esquerda -> próximo
+                    goToSlide(currentIndex + 1, true);
+                } else {
+                    // Deslizou para a direita -> anterior
+                    goToSlide(currentIndex - 1, true);
+                }
+            }
+        }
+    }, { passive: true });
+
+    // Pausar autoplay quando o mouse estiver sobre o carrossel
+    ['mouseenter', 'pointerdown'].forEach((ev) => {
+        stage.addEventListener(ev, () => {
+            pauseUntil = Date.now() + 10000;
+        }, { passive: true });
+    });
+
+    // Observador de visibilidade: Autoplay SÓ roda quando o carrossel está visível na tela
+    if ('IntersectionObserver' in window && showcaseSection) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                isSectionInView = entry.isIntersecting && entry.intersectionRatio > 0.2;
+            });
+        }, { threshold: [0, 0.2, 0.5] });
+        observer.observe(showcaseSection);
+    }
+
+    // Autoplay suave e silencioso (sem nenhum impacto no scroll vertical da página)
+    setInterval(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!isSectionInView) return; // Se a seção não está na tela, não gasta CPU nem mexe em nada
+        if (Date.now() < pauseUntil) return;
+        if (lightboxModal && lightboxModal.classList.contains('is-open')) return;
+
+        updateClasses(currentIndex + 1, false);
+    }, 5000);
+
+    // Inicializa sem scroll
+    updateClasses(0, false);
 })();
 
 // ============ PROVAS: ver mais resultados ============
