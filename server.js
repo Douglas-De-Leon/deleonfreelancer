@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/src/assets/images', express.static(path.join(__dirname, 'src', 'assets', 'images')));
 app.use(express.static(__dirname));
 
 // Custom fallback for any assets requested with encoded or decoded names

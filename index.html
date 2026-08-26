@@ -35,13 +35,12 @@
     <link rel="preconnect" href="https://connect.facebook.net" crossorigin>
     <link rel="dns-prefetch" href="https://script.google.com">
     <link rel="dns-prefetch" href="https://pay.kirvano.com">
-    <link rel="preload" as="image" href="assets/robo-agent.png" fetchpriority="high">
-    <meta name="description" content="De LeOn: a camada de inteligência por trás da sua empresa. Implementação de IA como sistema operacional para founders e PMEs. Closed loops em cada processo crítico.">
-    <meta name="keywords" content="De LeOn, sistema operacional IA, closed loop, AI-native, implementação IA, camada de inteligência">
-    <meta property="og:title" content="De LeOn: A camada de inteligência por trás da sua empresa">
+    <meta name="description" content="DE LEON: a camada de inteligência por trás da sua empresa. Implementação de IA como sistema operacional para founders e PMEs. Closed loops em cada processo crítico.">
+    <meta name="keywords" content="DE LEON, sistema operacional IA, closed loop, AI-native, implementação IA, camada de inteligência">
+    <meta property="og:title" content="DE LEON: A camada de inteligência por trás da sua empresa">
     <meta property="og:description" content="IA não é uma ferramenta. É o sistema operacional em que sua empresa roda. Para founders e PMEs até ~50 pessoas.">
     <meta property="og:type" content="website">
-    <title>De LeOn: A camada de inteligência por trás da sua empresa</title>
+    <title>DE LEON: A camada de inteligência por trás da sua empresa</title>
     <!-- Detect low-end hardware to disable heavy animations on slow desktops -->
     <script>
     (function() {
@@ -97,16 +96,15 @@
                 </span>
             </span>
             <span class="intro-phrase">E agora mais inteligente.</span>
-            <span class="intro-phrase">Tudo com <em>De LeOn</em>.</span>
+            <span class="intro-phrase">Tudo com <span class="brand-badge-inline">DE LEON</span>.</span>
         </div>
     </div>
 
     <main>
         <!-- HERO -->
-        <section class="hero">
+        <section class="hero" id="inicio">
             <span class="hero-top-light" aria-hidden="true"></span>
             <span class="hero-side-light" aria-hidden="true"></span>
-            <img class="hero-bg-image" src="assets/robo-agent.png" alt="Agente de IA De LeOn" width="1024" height="1024" decoding="async" fetchpriority="high" />
             <div class="hero-overlay" aria-hidden="true"></div>
             <div class="hero-glitch" aria-hidden="true">
                 <span class="glitch-dot g-1"></span>
@@ -161,15 +159,14 @@
             <div class="container hero-grid">
                 <div class="hero-content">
                     <div class="hero-eyebrow">
-                        <strong>De LeOn</strong>
+                        <span class="brand-badge">DE LEON</span>
                         <span class="hero-eyebrow-line"></span>
                         <span>Automação e IA</span>
                     </div>
 
                     <h1 class="hero-title">
-                        <span class="hero-title-line"><span class="word">Escale</span> <span class="word">o</span> <span class="word">seu</span></span>
-                        <span class="hero-title-line"><span class="word">negócio</span> <span class="word">com</span> <span class="word">o</span></span>
-                        <span class="hero-title-line"><em><span class="word">poder</span> <span class="word">da</span> <span class="word">IA.</span></em></span>
+                        <span class="hero-title-line"><span class="word">Escale</span> <span class="word">o</span> <span class="word">seu</span> <span class="word">negócio</span></span>
+                        <span class="hero-title-line"><em><span class="word">com</span> <span class="word">o</span> <span class="word">poder</span> <span class="word">da</span> <span class="word">IA.</span></em></span>
                     </h1>
 
                     <p class="hero-subtitle">
@@ -180,44 +177,159 @@
                         <a href="#captura" class="btn btn-tech">
                             SOLICITAR ORÇAMENTO
                         </a>
+                        <a href="simulador.html" class="btn btn-tech btn-tech--light" style="margin-left: 10px;">
+                            TESTAR AS 6 SOLUÇÕES AO VIVO ↗
+                        </a>
                     </div>
                 </div>
             </div>
 
         </section>
 
-        <!-- MÉTODO — TABLETS SHOWCASE -->
-        <section class="method-showcase">
+        <!-- MÉTODO — TABLETS SHOWCASE COM 6 EXEMPLOS DE IA -->
+        <section class="method-showcase" id="projetos">
             <div class="container">
                 <div class="section-header">
-                    <h2>Soluções completas em Inteligência Artificial</h2>
-                    <p class="section-sub">Desenvolvemos sistemas inteligentes para otimizar tempo e multiplicar os lucros da sua empresa.</p>
+                    <span class="eyebrow">Tecnologias Práticas & IA</span>
+                    <h2>6 problemas reais do seu negócio resolvidos com IA</h2>
+                    <p class="section-sub">Soluções inteligentes e de rápida implementação criadas para eliminar gargalos e automatizar tarefas manuais.</p>
                 </div>
 
-                <div class="tablets-stage" id="tabletsStage">
-                    <div class="tablet tablet-left">
-                        <div class="tablet-frame">
-                            <img src="assets/ai_project_1.jpg" alt="Projeto com IA - Postagem Viral" loading="lazy" decoding="async" width="730" height="560" style="object-fit: cover;" />
-                            <span class="tablet-progress" aria-hidden="true"><span class="tablet-progress-fill"></span></span>
-                        </div>
-                    </div>
-                    <div class="tablet tablet-center">
-                        <div class="tablet-frame">
-                            <img src="assets/ai_project_2.jpg" alt="Dashboard de Projetos com IA" loading="lazy" decoding="async" width="730" height="560" style="object-fit: cover;" />
-                            <span class="tablet-progress" aria-hidden="true"><span class="tablet-progress-fill"></span></span>
-                        </div>
-                    </div>
-                    <div class="tablet tablet-right">
-                        <div class="tablet-frame">
-                            <img src="assets/ai_project_3.jpg" alt="Feed viral no Instagram com Arte IA" loading="lazy" decoding="async" width="730" height="560" style="object-fit: cover;" />
-                            <span class="tablet-progress" aria-hidden="true"><span class="tablet-progress-fill"></span></span>
-                        </div>
-                    </div>
+                <!-- Tabs de Navegação das 6 Tecnologias -->
+                <div class="tech-tabs-nav" id="techTabsNav" role="tablist" aria-label="Tecnologias de IA">
+                    <button class="tech-tab-btn is-active" data-index="0" role="tab" aria-selected="true">
+                        <span class="tech-tab-num">01</span>
+                        <span class="tech-tab-label">Atendimento 24/7</span>
+                    </button>
+                    <button class="tech-tab-btn" data-index="1" role="tab" aria-selected="false">
+                        <span class="tech-tab-num">02</span>
+                        <span class="tech-tab-label">Leitura de Notas</span>
+                    </button>
+                    <button class="tech-tab-btn" data-index="2" role="tab" aria-selected="false">
+                        <span class="tech-tab-num">03</span>
+                        <span class="tech-tab-label">Agendamento</span>
+                    </button>
+                    <button class="tech-tab-btn" data-index="3" role="tab" aria-selected="false">
+                        <span class="tech-tab-num">04</span>
+                        <span class="tech-tab-label">Propostas & PDFs</span>
+                    </button>
+                    <button class="tech-tab-btn" data-index="4" role="tab" aria-selected="false">
+                        <span class="tech-tab-num">05</span>
+                        <span class="tech-tab-label">Qualificação Leads</span>
+                    </button>
+                    <button class="tech-tab-btn" data-index="5" role="tab" aria-selected="false">
+                        <span class="tech-tab-num">06</span>
+                        <span class="tech-tab-label">Dashboard Executivo</span>
+                    </button>
                 </div>
 
-                <div class="method-cta">
+                <!-- Palco com os 6 Tablets / Telas de IA -->
+                <div class="tablets-slider-wrap">
+                    <button class="tablet-nav-arrow tablet-nav-prev" id="tabletPrevBtn" aria-label="Tecnologia anterior">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+
+                    <div class="tablets-stage tablets-stage--six" id="tabletsStage">
+                        <!-- Tecnologia 01 -->
+                        <div class="tablet is-active" data-slide="0">
+                            <div class="tablet-frame">
+                                <img src="assets/ai_tech_1.jpg" alt="Atendimento e Triagem Automática 24/7 com IA no WhatsApp" loading="lazy" decoding="async" width="800" height="600" referrerPolicy="no-referrer" />
+                                <div class="tablet-caption">
+                                    <span class="tablet-badge">Problema: Espera no WhatsApp</span>
+                                    <h3 class="tablet-title">Atendimento & Triagem 24/7</h3>
+                                    <p class="tablet-desc">Respostas instantâneas para clientes, tirando dúvidas comuns e transferindo chamados urgentes.</p>
+                                    <a href="simulador.html?app=0" class="btn btn-tech btn-tech--light" style="margin-top: 12px; font-size: 0.75rem; padding: 8px 14px; display: inline-flex;">TESTAR ESTA SOLUÇÃO AO VIVO ↗</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologia 02 -->
+                        <div class="tablet" data-slide="1">
+                            <div class="tablet-frame">
+                                <img src="assets/ai_tech_2.jpg" alt="Extração Inteligente de Notas Fiscais e Conciliação com IA" loading="lazy" decoding="async" width="800" height="600" referrerPolicy="no-referrer" />
+                                <div class="tablet-caption">
+                                    <span class="tablet-badge">Problema: Digitação Manual de Recibos</span>
+                                    <h3 class="tablet-title">Leitura de Notas & Conciliação</h3>
+                                    <p class="tablet-desc">OCR inteligente que lê PDFs e comprovantes, extrai CNPJ e valores sem erros manuais.</p>
+                                    <a href="simulador.html?app=1" class="btn btn-tech btn-tech--light" style="margin-top: 12px; font-size: 0.75rem; padding: 8px 14px; display: inline-flex;">TESTAR ESTA SOLUÇÃO AO VIVO ↗</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologia 03 -->
+                        <div class="tablet" data-slide="2">
+                            <div class="tablet-frame">
+                                <img src="assets/ai_tech_3.jpg" alt="Agendamento Autônomo e Sincronização de Calendário com IA" loading="lazy" decoding="async" width="800" height="600" referrerPolicy="no-referrer" />
+                                <div class="tablet-caption">
+                                    <span class="tablet-badge">Problema: Faltas e Perda de Tempo</span>
+                                    <h3 class="tablet-title">Agendamento & Calendário Autônomo</h3>
+                                    <p class="tablet-desc">Sincroniza horários no Google Calendar e dispara lembretes automáticos anti-falta via WhatsApp.</p>
+                                    <a href="simulador.html?app=2" class="btn btn-tech btn-tech--light" style="margin-top: 12px; font-size: 0.75rem; padding: 8px 14px; display: inline-flex;">TESTAR ESTA SOLUÇÃO AO VIVO ↗</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologia 04 -->
+                        <div class="tablet" data-slide="3">
+                            <div class="tablet-frame">
+                                <img src="assets/ai_tech_4.jpg" alt="Gerador Instantâneo de Propostas Comerciais e Contratos em PDF" loading="lazy" decoding="async" width="800" height="600" referrerPolicy="no-referrer" />
+                                <div class="tablet-caption">
+                                    <span class="tablet-badge">Problema: Demora para Enviar Orçamento</span>
+                                    <h3 class="tablet-title">Gerador de Propostas & Contratos</h3>
+                                    <p class="tablet-desc">Transforma anotações de reunião ou áudios em propostas comerciais e PDFs em 5 segundos.</p>
+                                    <a href="simulador.html?app=3" class="btn btn-tech btn-tech--light" style="margin-top: 12px; font-size: 0.75rem; padding: 8px 14px; display: inline-flex;">TESTAR ESTA SOLUÇÃO AO VIVO ↗</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologia 05 -->
+                        <div class="tablet" data-slide="4">
+                            <div class="tablet-frame">
+                                <img src="assets/ai_tech_5.jpg" alt="Qualificação Preditiva de Leads e CRM Inteligente com IA" loading="lazy" decoding="async" width="800" height="600" referrerPolicy="no-referrer" />
+                                <div class="tablet-caption">
+                                    <span class="tablet-badge">Problema: Vendedores em Leads Frios</span>
+                                    <h3 class="tablet-title">Qualificação de Leads & CRM</h3>
+                                    <p class="tablet-desc">Classifica o potencial de compra com pontuação inteligente e alerta a equipe nos leads mais quentes.</p>
+                                    <a href="simulador.html?app=4" class="btn btn-tech btn-tech--light" style="margin-top: 12px; font-size: 0.75rem; padding: 8px 14px; display: inline-flex;">TESTAR ESTA SOLUÇÃO AO VIVO ↗</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tecnologia 06 -->
+                        <div class="tablet" data-slide="5">
+                            <div class="tablet-frame">
+                                <img src="assets/ai_tech_6.jpg" alt="Dashboard Executivo e Resumos Diários de IA para Gestores" loading="lazy" decoding="async" width="800" height="600" referrerPolicy="no-referrer" />
+                                <div class="tablet-caption">
+                                    <span class="tablet-badge">Problema: Falta de Clareza dos Números</span>
+                                    <h3 class="tablet-title">Dashboard Executivo & Resumos</h3>
+                                    <p class="tablet-desc">Consolida faturamento e métricas e envia o resumo diário do negócio direto no WhatsApp dos sócios.</p>
+                                    <a href="simulador.html?app=5" class="btn btn-tech btn-tech--light" style="margin-top: 12px; font-size: 0.75rem; padding: 8px 14px; display: inline-flex;">TESTAR ESTA SOLUÇÃO AO VIVO ↗</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="tablet-nav-arrow tablet-nav-next" id="tabletNextBtn" aria-label="Próxima tecnologia">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </button>
+                </div>
+
+                <!-- Indicador de Paginação / Dots -->
+                <div class="tablets-dots" id="tabletsDots">
+                    <span class="tablet-dot is-active" data-index="0"></span>
+                    <span class="tablet-dot" data-index="1"></span>
+                    <span class="tablet-dot" data-index="2"></span>
+                    <span class="tablet-dot" data-index="3"></span>
+                    <span class="tablet-dot" data-index="4"></span>
+                    <span class="tablet-dot" data-index="5"></span>
+                </div>
+
+                <div class="method-cta" style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                    <a href="simulador.html" class="btn btn-tech btn-tech--light">
+                        ABRIR SANDBOX DE TESTES DAS 6 SOLUÇÕES ⚙
+                    </a>
                     <a href="#captura" class="btn btn-tech">
-                        QUERO CONHECER
+                        QUERO IMPLEMENTAR NA MINHA EMPRESA
                     </a>
                 </div>
             </div>
@@ -278,7 +390,7 @@
                                     <span class="code-dot"></span>
                                     <span class="code-dot"></span>
                                     <span class="code-dot"></span>
-                                    <span class="code-filename">~/De LeOn</span>
+                                    <span class="code-filename">~/<span class="brand-badge-inline">DE LEON</span></span>
                                     <span class="code-header-meta"><span class="hm-dot"></span> 3 alterações · main</span>
                                 </div>
 
@@ -335,7 +447,7 @@
                                     <div class="code-content">
                                         <div class="code-toolbar">
                                             <span class="toolbar-title">EXPLORER</span>
-                                            <span class="toolbar-path">~ / projetos / De LeOn</span>
+                                            <span class="toolbar-path">~ / projetos / <span class="brand-badge-inline">DE LEON</span></span>
                                             <span class="toolbar-actions">
                                                 <span class="toolbar-action">+</span>
                                                 <span class="toolbar-action">↻</span>
@@ -488,7 +600,7 @@
                                                         <span class="tree-toggle">▸</span>
                                                         <svg class="tree-icon tree-icon-dot"><use href="#ic-dotfolder"/></svg>
                                                         <span class="tree-name">.claude/</span>
-                                                        <span class="tree-comment">·skills + commands do De LeOn</span>
+                                                        <span class="tree-comment">·skills + commands do <span class="brand-badge-inline">DE LEON</span></span>
                                                     </div>
                                                     <ul class="tree-children">
                                                         <li class="tree-subfolder">
@@ -523,7 +635,7 @@
 
                                         <div class="code-prompt">
                                             <span class="prompt-sigil">›</span>
-                                            <span class="prompt-cmd"><span class="prompt-cmd-bin">De LeOn</span> sync <span class="prompt-flag">--all</span></span>
+                                            <span class="prompt-cmd"><span class="brand-badge-inline">DE LEON</span> sync <span class="prompt-flag">--all</span></span>
                                             <span class="prompt-cursor"></span>
                                         </div>
                                     </div>
@@ -548,12 +660,317 @@
             </div>
         </section>
 
-        <!-- PROVAS SOCIAIS -->
+        <!-- PROVAS SOCIAIS / DEPOIMENTOS WHATSAPP -->
         <section class="faq proof" id="resultados">
             <div class="container">
                 <div class="section-header">
-                    <span class="eyebrow">Resultados</span>
-                    <h2>Resultado da semana</h2>
+                    <span class="eyebrow">Resultados Reais</span>
+                    <h2>O que nossos clientes dizem no WhatsApp</h2>
+                    <p class="section-desc">Conversas e feedbacks diretos de quem já implementou agentes e automações inteligentes com o <span class="brand-badge-inline">DE LEON</span>.</p>
+                </div>
+
+                <div class="testimonials-columns-grid">
+                    <!-- Depoimento 1: Lucas Mendes · Atendimento 24/7 -->
+                    <div class="wa-proof-card" id="wa-depoimento-1">
+                        <div class="wa-proof-topbar">
+                            <div class="wa-proof-user-wrap">
+                                <div class="wa-proof-avatar">LM</div>
+                                <div class="wa-proof-user-meta">
+                                    <div class="wa-proof-name-row">
+                                        <span class="wa-proof-name">Lucas Mendes</span>
+                                    </div>
+                                    <span class="wa-proof-role">CEO · LogTech Express</span>
+                                </div>
+                            </div>
+                            <span class="wa-proof-badge-verified">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verificado
+                            </span>
+                        </div>
+                        <div class="wa-proof-body">
+                            <div class="wa-proof-encryption-tag">
+                                🔒 As mensagens são protegidas com criptografia de ponta a ponta.
+                            </div>
+                            <div class="wa-proof-date-pill">Ontem</div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Fala <span class="wa-highlight-dev">Douglas De Leon</span>! Passando pra te agradecer demais pelo agente autônomo de WhatsApp que você desenvolveu pra gente.</p>
+                                    <p style="margin-top: 4px;">Rodou liso o final de semana inteiro! Atendeu mais de 140 cotações de frete de madrugada e não perdemos nenhum lead.</p>
+                                    <div class="wa-meta-row"><span>09:14</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-out">
+                                <div class="wa-bubble">
+                                    <p>Grande Lucas! Fico feliz demais em saber irmão! 🚀 O tempo de resposta ficou abaixo de 2 segundos como planejado no fluxo?</p>
+                                    <div class="wa-meta-row"><span>09:16</span> <span class="wa-ticks-blue">✓✓</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Menos de 2 segundos cravados! Nossa taxa de fechamento dobrou só por atender na hora. Seu trabalho é diferenciado Douglas, parabéns! 🤝👏</p>
+                                    <div class="wa-meta-row"><span>09:18</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wa-proof-footer">
+                            <span class="wa-proof-solution-tag">Atendimento 24/7</span>
+                            <span class="wa-proof-metric-highlight">⚡ +140 Leads no fim de semana</span>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 2: Mariana Silveira · OCR Fiscal & Conciliação -->
+                    <div class="wa-proof-card" id="wa-depoimento-2">
+                        <div class="wa-proof-topbar">
+                            <div class="wa-proof-user-wrap">
+                                <div class="wa-proof-avatar avatar-mariana">MS</div>
+                                <div class="wa-proof-user-meta">
+                                    <div class="wa-proof-name-row">
+                                        <span class="wa-proof-name">Mariana Silveira</span>
+                                    </div>
+                                    <span class="wa-proof-role">Diretora Financeira · FinScale</span>
+                                </div>
+                            </div>
+                            <span class="wa-proof-badge-verified">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verificado
+                            </span>
+                        </div>
+                        <div class="wa-proof-body">
+                            <div class="wa-proof-encryption-tag">
+                                🔒 As mensagens são protegidas com criptografia de ponta a ponta.
+                            </div>
+                            <div class="wa-proof-date-pill">Hoje</div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Boa tarde <span class="wa-highlight-dev">Douglas</span>! Queria te dar o feedback do fechamento do mês com a automação de leitura de notas em PDF...</p>
+                                    <div class="wa-meta-row"><span>14:22</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-out">
+                                <div class="wa-bubble">
+                                    <p>Boa tarde Mariana! Como foi a conciliação automática direto no Conta Azul / ERP?</p>
+                                    <div class="wa-meta-row"><span>14:24</span> <span class="wa-ticks-blue">✓✓</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p><span class="wa-highlight-dev">Douglas De Leon</span> do céu, foi inacreditável! O que a gente levava 4 dias digitando manualmente, o OCR inteligente processou em 8 minutos com 100% de precisão. Economizamos 35 horas essa semana! Muito obrigada pelo suporte!</p>
+                                    <div class="wa-meta-row"><span>14:26</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wa-proof-footer">
+                            <span class="wa-proof-solution-tag">Leitura de Notas & OCR</span>
+                            <span class="wa-proof-metric-highlight">⏱️ 35h economizadas por semana</span>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 3: Gabriel Torres · CRM AI Scoring -->
+                    <div class="wa-proof-card" id="wa-depoimento-3">
+                        <div class="wa-proof-topbar">
+                            <div class="wa-proof-user-wrap">
+                                <div class="wa-proof-avatar avatar-gabriel">GT</div>
+                                <div class="wa-proof-user-meta">
+                                    <div class="wa-proof-name-row">
+                                        <span class="wa-proof-name">Gabriel Torres</span>
+                                    </div>
+                                    <span class="wa-proof-role">Head de Growth · GrowthCorp</span>
+                                </div>
+                            </div>
+                            <span class="wa-proof-badge-verified">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verificado
+                            </span>
+                        </div>
+                        <div class="wa-proof-body">
+                            <div class="wa-proof-encryption-tag">
+                                🔒 As mensagens são protegidas com criptografia de ponta a ponta.
+                            </div>
+                            <div class="wa-proof-date-pill">Terça-feira</div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Fala <span class="wa-highlight-dev">Douglas</span>, cara, o sistema de AI Lead Scoring que você integrou no nosso CRM tá surreal de bom!</p>
+                                    <p style="margin-top: 4px;">Nossos closers agora só entram em call com lead quente qualificado e recebem o pitch pronto no WhatsApp.</p>
+                                    <div class="wa-meta-row"><span>16:40</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-out">
+                                <div class="wa-bubble">
+                                    <p>Sensacional Gabriel! E o volume de fechamentos do time comercial?</p>
+                                    <div class="wa-meta-row"><span>16:43</span> <span class="wa-ticks-blue">✓✓</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Fechamos R$ 48k em contratos novos só nessa quinzena com metade do esforço. Seu trabalho de IA é outro nível <span class="wa-highlight-dev">Douglas De Leon</span>!</p>
+                                    <div class="wa-meta-row"><span>16:45</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wa-proof-footer">
+                            <span class="wa-proof-solution-tag">Qualificação & CRM</span>
+                            <span class="wa-proof-metric-highlight">📈 R$ 48k em novos contratos</span>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 4: Thiago Farias · Gerador de Propostas -->
+                    <div class="wa-proof-card" id="wa-depoimento-4">
+                        <div class="wa-proof-topbar">
+                            <div class="wa-proof-user-wrap">
+                                <div class="wa-proof-avatar avatar-thiago">TF</div>
+                                <div class="wa-proof-user-meta">
+                                    <div class="wa-proof-name-row">
+                                        <span class="wa-proof-name">Thiago Farias</span>
+                                    </div>
+                                    <span class="wa-proof-role">Diretor de Tecnologia · Nexus Tech</span>
+                                </div>
+                            </div>
+                            <span class="wa-proof-badge-verified">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verificado
+                            </span>
+                        </div>
+                        <div class="wa-proof-body">
+                            <div class="wa-proof-encryption-tag">
+                                🔒 As mensagens são protegidas com criptografia de ponta a ponta.
+                            </div>
+                            <div class="wa-proof-date-pill">Segunda-feira</div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p><span class="wa-highlight-dev">Douglas De Leon</span>, preciso registrar meu elogio aqui. Aquele gerador autônomo de propostas e contratos em PDF a partir de áudios de reunião salvou nossa diretoria.</p>
+                                    <div class="wa-meta-row"><span>11:05</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-out">
+                                <div class="wa-bubble">
+                                    <p>Fala Thiago! Muito bom saber! As propostas estão sendo geradas com o design timbrado certinho?</p>
+                                    <div class="wa-meta-row"><span>11:08</span> <span class="wa-ticks-blue">✓✓</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Em 5 segundos o PDF sai perfeito com escopo, valores e contrato pronto para assinatura. O cliente recebe antes de desligar a call. Fantástico!</p>
+                                    <div class="wa-meta-row"><span>11:10</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wa-proof-footer">
+                            <span class="wa-proof-solution-tag">Gerador de Propostas</span>
+                            <span class="wa-proof-metric-highlight">⚡ Propostas prontas em 5 seg</span>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 5: Dra. Camila Duarte · Agendamento Autônomo -->
+                    <div class="wa-proof-card" id="wa-depoimento-5">
+                        <div class="wa-proof-topbar">
+                            <div class="wa-proof-user-wrap">
+                                <div class="wa-proof-avatar avatar-camila">CD</div>
+                                <div class="wa-proof-user-meta">
+                                    <div class="wa-proof-name-row">
+                                        <span class="wa-proof-name">Dra. Camila Duarte</span>
+                                    </div>
+                                    <span class="wa-proof-role">Gestora Médica · Clínica Vitta</span>
+                                </div>
+                            </div>
+                            <span class="wa-proof-badge-verified">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verificado
+                            </span>
+                        </div>
+                        <div class="wa-proof-body">
+                            <div class="wa-proof-encryption-tag">
+                                🔒 As mensagens são protegidas com criptografia de ponta a ponta.
+                            </div>
+                            <div class="wa-proof-date-pill">Quinta-feira</div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Olá <span class="wa-highlight-dev">Douglas De Leon</span>! Passando pra te agradecer pelo sistema de agendamento no WhatsApp com integração na nossa agenda.</p>
+                                    <div class="wa-meta-row"><span>18:30</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-out">
+                                <div class="wa-bubble">
+                                    <p>Olá Dra. Camila! Que ótimo! Como ficou a taxa de presença das consultas com os lembretes automáticos?</p>
+                                    <div class="wa-meta-row"><span>18:33</span> <span class="wa-ticks-blue">✓✓</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Nossas faltas caíram 85%! O paciente confirma na hora pelo WhatsApp e se alguém remarca, a IA preenche o horário com a lista de espera. Você é brilhante Douglas! 🙏✨</p>
+                                    <div class="wa-meta-row"><span>18:35</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wa-proof-footer">
+                            <span class="wa-proof-solution-tag">Agendamento & Calendário</span>
+                            <span class="wa-proof-metric-highlight">📉 Queda de 85% em no-show</span>
+                        </div>
+                    </div>
+
+                    <!-- Depoimento 6: Rodrigo Albuquerque · Dashboard Executivo -->
+                    <div class="wa-proof-card" id="wa-depoimento-6">
+                        <div class="wa-proof-topbar">
+                            <div class="wa-proof-user-wrap">
+                                <div class="wa-proof-avatar avatar-rodrigo">RA</div>
+                                <div class="wa-proof-user-meta">
+                                    <div class="wa-proof-name-row">
+                                        <span class="wa-proof-name">Rodrigo Albuquerque</span>
+                                    </div>
+                                    <span class="wa-proof-role">Sócio Diretor · Atlas Soluções</span>
+                                </div>
+                            </div>
+                            <span class="wa-proof-badge-verified">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                Verificado
+                            </span>
+                        </div>
+                        <div class="wa-proof-body">
+                            <div class="wa-proof-encryption-tag">
+                                🔒 As mensagens são protegidas com criptografia de ponta a ponta.
+                            </div>
+                            <div class="wa-proof-date-pill">Hoje</div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p><span class="wa-highlight-dev">Douglas</span>, todo dia às 07:30 quando recebo o resumo de IA no WhatsApp com o faturamento, gargalos e metas do dia, lembro de te agradecer.</p>
+                                    <div class="wa-meta-row"><span>08:12</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-out">
+                                <div class="wa-bubble">
+                                    <p>Fala Rodrigo! Fico feliz demais! A clareza dos dados ajudou na tomada de decisões da diretoria?</p>
+                                    <div class="wa-meta-row"><span>08:15</span> <span class="wa-ticks-blue">✓✓</span></div>
+                                </div>
+                            </div>
+
+                            <div class="wa-msg wa-msg-in">
+                                <div class="wa-bubble">
+                                    <p>Totalmente! Eliminou a necessidade de caçar relatórios em 5 planilhas. Parabéns pela competência técnica e entrega ágil <span class="wa-highlight-dev">Douglas De Leon</span>!</p>
+                                    <div class="wa-meta-row"><span>08:18</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="wa-proof-footer">
+                            <span class="wa-proof-solution-tag">Dashboard Executivo</span>
+                            <span class="wa-proof-metric-highlight">📊 Resumo diário automatizado</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="method-cta proof-actions">
@@ -599,7 +1016,7 @@
         </section>
 
         <!-- FAQ -->
-        <section class="faq">
+        <section class="faq" id="faq">
             <div class="container">
                 <div class="section-header">
                     <span class="eyebrow">Dúvidas frequentes</span>
@@ -608,8 +1025,8 @@
 
                 <div class="faq-list">
                     <details class="faq-item">
-                        <summary>O que exatamente a De LeOn faz?</summary>
-                        <p>A De LeOn é uma assessoria especializada em Inteligência Artificial. Nós mapeamos as ineficiências da sua empresa e desenvolvemos soluções de automação e agentes de IA para otimizar seus processos, reduzir custos e aumentar as vendas.</p>
+                        <summary>O que exatamente a <span class="brand-badge-inline">DE LEON</span> faz?</summary>
+                        <p>A <span class="brand-badge-inline">DE LEON</span> é uma assessoria especializada em Inteligência Artificial. Nós mapeamos as ineficiências da sua empresa e desenvolvemos soluções de automação e agentes de IA para otimizar seus processos, reduzir custos e aumentar as vendas.</p>
                     </details>
 
                     <details class="faq-item">
@@ -637,12 +1054,112 @@
     </main>
 
     <footer class="site-footer">
-        <div class="container footer-inner">
-            <p class="footer-legal">Desenvolvedor: Douglas De leon</p>
-            <p class="footer-contact"><a href="tel:91992807333">Telefone: 91992807333</a> | <a href="mailto:douglasdeleonscruz@gmail.com">E-mail: douglasdeleonscruz@gmail.com</a></p>
-            <p class="footer-copy">© <span id="year">2026</span> deleonfreelancer.com.br. Todos os direitos reservados.</p>
+        <div class="container footer-container">
+            <div class="footer-top">
+                <div class="footer-brand-col">
+                    <div class="footer-logo">
+                        <span class="brand-badge">DE LEON</span>
+                        <span class="brand-subtitle">AUTOMAÇÃO E IA</span>
+                    </div>
+                    <p class="footer-desc">
+                        A camada de inteligência e automação por trás do seu negócio. Agentes autônomos, sistemas inteligentes e suporte sob medida.
+                    </p>
+                    <div class="footer-status">
+                        <span class="status-dot"></span>
+                        <span>Disponível para novos projetos</span>
+                    </div>
+                </div>
+
+                <!-- COLUNA 1: MENU -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Menu</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#projetos">Projetos & Portfólio</a></li>
+                        <li><a href="#resultados">Depoimentos & Provas</a></li>
+                        <li><a href="#modulos">Como Ajudamos</a></li>
+                        <li><a href="#faq">Dúvidas Frequentes</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUNA 2: SERVIÇOS -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Serviços</h3>
+                    <ul class="footer-links">
+                        <li><a href="#modulos">Automação de Atendimento (Chatbots)</a></li>
+                        <li><a href="#modulos">Agentes Virtuais Autônomos</a></li>
+                        <li><a href="#modulos">Geração de Conteúdo em Escala</a></li>
+                        <li><a href="#modulos">Dashboards & Business Intelligence</a></li>
+                        <li><a href="#modulos">Integração de Sistemas & CRMs</a></li>
+                    </ul>
+                </div>
+
+                <!-- COLUNA 3: REDES SOCIAIS & CONTATO -->
+                <div class="footer-col">
+                    <h3 class="footer-title">Redes Sociais</h3>
+                    <ul class="footer-social-list">
+                        <li>
+                            <a href="https://wa.me/5591992807333" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                                <span class="social-icon wa-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.086-2.006-.457-1.674-.694-2.738-2.39-2.821-2.502-.083-.112-.676-.901-.676-1.718 0-.818.43-1.22.583-1.385.153-.165.333-.207.444-.207.111 0 .222.002.32.007.104.006.243-.039.38.291.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.117-.087.19-.174.291-.087.102-.183.228-.261.306-.089.088-.182.185-.078.363.104.179.462.763.992 1.236.683.61 1.26.799 1.439.888.179.089.284.076.39-.046.106-.122.456-.531.578-.713.122-.182.244-.153.41-.092.167.061 1.056.498 1.237.589.181.091.303.136.347.212.044.076.044.44-.1.845zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.174L2 22l4.981-1.396A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+                                </span>
+                                <span>WhatsApp: (91) 99280-7333</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                                <span class="social-icon ig-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </span>
+                                <span>Instagram</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-social-link">
+                                <span class="social-icon in-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                                </span>
+                                <span>LinkedIn</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:douglasdeleonscruz@gmail.com" class="footer-social-link">
+                                <span class="social-icon mail-icon">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                </span>
+                                <span>douglasdeleonscruz@gmail.com</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- SUB-FOOTER -->
+            <div class="footer-bottom">
+                <p class="footer-copy">
+                    © <span id="year">2026</span> <span class="brand-badge-inline">DE LEON</span> <strong>AI</strong> · deleonfreelancer.com.br. Todos os direitos reservados.
+                </p>
+                <p class="footer-dev">
+                    Desenvolvedor: <strong>Douglas <span class="brand-badge-inline">DE LEON</span></strong>
+                </p>
+            </div>
         </div>
     </footer>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/5591992807333?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20as%20solu%C3%A7%C3%B5es%20em%20IA%20e%20automa%C3%A7%C3%A3o."
+       target="_blank"
+       rel="noopener noreferrer"
+       class="floating-whatsapp"
+       id="floatingWhatsappBtn"
+       aria-label="Fale conosco no WhatsApp">
+        <span class="floating-whatsapp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.311.045-.698.086-2.006-.457-1.674-.694-2.738-2.39-2.821-2.502-.083-.112-.676-.901-.676-1.718 0-.818.43-1.22.583-1.385.153-.165.333-.207.444-.207.111 0 .222.002.32.007.104.006.243-.039.38.291.144.348.492 1.2.535 1.288.043.088.072.191.014.307-.058.117-.087.19-.174.291-.087.102-.183.228-.261.306-.089.088-.182.185-.078.363.104.179.462.763.992 1.236.683.61 1.26.799 1.439.888.179.089.284.076.39-.046.106-.122.456-.531.578-.713.122-.182.244-.153.41-.092.167.061 1.056.498 1.237.589.181.091.303.136.347.212.044.076.044.44-.1.845zM12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.66 1.434 5.174L2 22l4.981-1.396A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+            </svg>
+        </span>
+        <span class="floating-whatsapp-ping" aria-hidden="true"></span>
+    </a>
 
     <script src="script.js?v=20260705f" defer></script>
 </body>

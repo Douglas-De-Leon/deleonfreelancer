@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DE LEON OS · Sandbox de Testes das 6 Soluções de IA</title>
+    <meta name="description" content="Ambiente de simulação interativo das 6 soluções de Inteligência Artificial desenvolvidas pela DE LEON: Atendimento 24/7, OCR de Notas, Agendamento, Gerador de Propostas, Qualificador de Leads e Dashboard Executivo.">
+    <link rel="icon" type="image/png" href="assets/favicon-32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sim-body">
+    <div class="sim-app-container">
+        <!-- TOPBAR DE NAVEGAÇÃO DO SISTEMA -->
+        <header class="sim-topbar">
+            <div class="sim-topbar-left">
+                <a href="index.html" class="sim-brand-link" title="Voltar ao site principal">
+                    <span class="brand-badge-inline">DE LEON</span>
+                    <span class="sim-brand-sub">OS · SIMULADOR</span>
+                </a>
+                <span class="sim-badge-live">
+                    <span class="sim-live-dot"></span> AMBIENTE DE TESTES ATIVO
+                </span>
+            </div>
+
+            <div class="sim-topbar-center">
+                <span class="sim-current-view-title" id="simCurrentViewTitle">01 · Atendimento & Triagem 24/7</span>
+            </div>
+
+            <div class="sim-topbar-right">
+                <a href="index.html#projetos" class="sim-btn-back">
+                    <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    <span>Voltar ao Site</span>
+                </a>
+                <a href="https://wa.me/5551989025114?text=Olá%20Douglas!%20Testei%20as%20soluções%20no%20simulador%20e%20gostaria%20de%20implementar%20na%20minha%20empresa." target="_blank" rel="noopener noreferrer" class="sim-btn-cta">
+                    <span>Implementar na Minha Empresa</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- LAYOUT PRINCIPAL: SIDEBAR + CONTEÚDO DA SOLUÇÃO -->
+        <div class="sim-main-layout">
+            <!-- SIDEBAR COM AS 6 SOLUÇÕES -->
+            <aside class="sim-sidebar" id="simSidebar">
+                <div class="sim-sidebar-header">
+                    <span class="sim-sidebar-label">SOLUÇÕES DISPONÍVEIS</span>
+                </div>
+                <nav class="sim-nav-list" role="tablist">
+                    <button class="sim-nav-item is-active" data-app="0" role="tab">
+                        <span class="sim-nav-num">01</span>
+                        <div class="sim-nav-info">
+                            <span class="sim-nav-name">Atendimento 24/7</span>
+                            <span class="sim-nav-desc">WhatsApp & Triagem com IA</span>
+                        </div>
+                        <span class="sim-nav-tag">Chat</span>
+                    </button>
+
+                    <button class="sim-nav-item" data-app="1" role="tab">
+                        <span class="sim-nav-num">02</span>
+                        <div class="sim-nav-info">
+                            <span class="sim-nav-name">Leitura de Notas</span>
+                            <span class="sim-nav-desc">OCR & Conciliação Contábil</span>
+                        </div>
+                        <span class="sim-nav-tag">OCR</span>
+                    </button>
+
+                    <button class="sim-nav-item" data-app="2" role="tab">
+                        <span class="sim-nav-num">03</span>
+                        <div class="sim-nav-info">
+                            <span class="sim-nav-name">Agendamento Autônomo</span>
+                            <span class="sim-nav-desc">Calendário & Lembrete Anti-Falta</span>
+                        </div>
+                        <span class="sim-nav-tag">Agenda</span>
+                    </button>
+
+                    <button class="sim-nav-item" data-app="3" role="tab">
+                        <span class="sim-nav-num">04</span>
+                        <div class="sim-nav-info">
+                            <span class="sim-nav-name">Gerador de Propostas</span>
+                            <span class="sim-nav-desc">PDFs Comerciais em 5s</span>
+                        </div>
+                        <span class="sim-nav-tag">Doc</span>
+                    </button>
+
+                    <button class="sim-nav-item" data-app="4" role="tab">
+                        <span class="sim-nav-num">05</span>
+                        <div class="sim-nav-info">
+                            <span class="sim-nav-name">Qualificação de Leads</span>
+                            <span class="sim-nav-desc">CRM & Scoring Preditivo</span>
+                        </div>
+                        <span class="sim-nav-tag">CRM</span>
+                    </button>
+
+                    <button class="sim-nav-item" data-app="5" role="tab">
+                        <span class="sim-nav-num">06</span>
+                        <div class="sim-nav-info">
+                            <span class="sim-nav-name">Dashboard Executivo</span>
+                            <span class="sim-nav-desc">Métricas & Resumos WhatsApp</span>
+                        </div>
+                        <span class="sim-nav-tag">BI</span>
+                    </button>
+                </nav>
+
+                <div class="sim-sidebar-footer">
+                    <div class="sim-tech-status">
+                        <div class="sim-status-row">
+                            <span class="sim-status-indicator"></span>
+                            <span class="sim-status-text">Motor IA: DE LEON Core v4.2</span>
+                        </div>
+                        <span class="sim-status-sub">Latência Média: <strong>240ms</strong></span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- ÁREA CENTRAL COM AS 6 APLICAÇÕES INTERATIVAS -->
+            <main class="sim-content-area" id="simContentArea">
+
+                <!-- ============================================================== -->
+                <!-- SOLUÇÃO 1: ATENDIMENTO & TRIAGEM 24/7 (WHATSAPP AI AGENT) -->
+                <!-- ============================================================== -->
+                <section class="sim-pane is-active" id="pane-app-0">
+                    <div class="sim-pane-header">
+                        <div>
+                            <span class="sim-pane-eyebrow">Solução 01 · Atendimento Inteligente</span>
+                            <h2>Agente de Atendimento & Triagem 24/7</h2>
+                            <p>Simulação real do comportamento do assistente virtual treinado com as regras do seu negócio para responder dúvidas, qualificar demandas e agendar reuniões sem atendentes humanos.</p>
+                        </div>
+                        <div class="sim-pane-actions">
+                            <button class="sim-btn-secondary" id="btnClearChat">
+                                <svg viewBox="0 0 24 24"><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
+                                Limpar Conversa
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="sim-chat-grid">
+                        <!-- Celular / WhatsApp Web Mockup -->
+                        <div class="sim-phone-frame">
+                            <div class="sim-phone-header">
+                                <div class="sim-phone-avatar">
+                                    <span class="brand-badge-inline" style="font-size: 0.65rem; padding: 2px 4px;">DE LEON</span>
+                                </div>
+                                <div class="sim-phone-contact">
+                                    <span class="sim-phone-name">Assistente IA · Empresa Modelo</span>
+                                    <span class="sim-phone-status"><span class="sim-live-dot"></span> online 24h</span>
+                                </div>
+                                <div class="sim-phone-icons">
+                                    <span title="Criptografia de ponta a ponta">🔒</span>
+                                </div>
+                            </div>
+
+                            <div class="sim-phone-body" id="chatMessageList">
+                                <div class="sim-chat-date"><span>Hoje</span></div>
+                                <div class="sim-msg sim-msg-in">
+                                    <div class="sim-msg-bubble">
+                                        <p>Olá! Sou o assistente virtual com inteligência artificial. Como posso ajudar sua empresa hoje?</p>
+                                        <span class="sim-msg-time">10:00 <svg viewBox="0 0 16 15" width="16" height="15"><path fill="#53bdeb" d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.879a.32.32 0 0 1-.484.033l-.358-.325a.319.319 0 0 0-.484.032l-.378.483a.418.418 0 0 0 .036.541l1.32 1.266c.143.14.361.125.484-.033l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.879a.32.32 0 0 1-.484.033L1.891 7.769a.366.366 0 0 0-.515.006l-.423.433a.364.364 0 0 0 .006.514l3.258 3.185c.143.14.361.125.484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z"/></svg></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sim-phone-footer">
+                                <form id="chatForm" class="sim-chat-form">
+                                    <input type="text" id="chatInput" placeholder="Digite uma mensagem para testar a IA..." autocomplete="off">
+                                    <button type="submit" class="sim-chat-send" title="Enviar Mensagem">
+                                        <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Painel de Sugestões e Métricas da IA -->
+                        <div class="sim-chat-inspect">
+                            <div class="sim-card">
+                                <h3 class="sim-card-title">Perguntas Rápidas de Teste</h3>
+                                <p class="sim-card-desc">Clique em qualquer sugestão abaixo para disparar o teste com a inteligência artificial:</p>
+                                <div class="sim-prompt-chips">
+                                    <button class="sim-chip" data-prompt="Quais são os serviços de IA e automação que vocês oferecem?">Quais serviços vocês oferecem?</button>
+                                    <button class="sim-chip" data-prompt="Quanto custa para implementar um agente de IA no meu WhatsApp?">Qual o investimento médio?</button>
+                                    <button class="sim-chip" data-prompt="Quero agendar uma demonstração para a próxima terça-feira às 14h">Agendar reunião de demonstração</button>
+                                    <button class="sim-chip" data-prompt="Vocês integram com o meu CRM e com o sistema Bling/ContaAzul?">Integrações com ERP / CRM</button>
+                                    <button class="sim-chip" data-prompt="Preciso falar urgente com um atendente humano!">Solicitar atendente humano</button>
+                                </div>
+                            </div>
+
+                            <div class="sim-card">
+                                <h3 class="sim-card-title">Telemetria da IA em Tempo Real</h3>
+                                <div class="sim-metric-list">
+                                    <div class="sim-metric-row">
+                                        <span class="sim-m-label">Intenção Identificada:</span>
+                                        <span class="sim-m-val" id="telemetryIntent">Geral / Boas-vindas</span>
+                                    </div>
+                                    <div class="sim-metric-row">
+                                        <span class="sim-m-label">Confiança do Reconhecimento:</span>
+                                        <span class="sim-m-val" id="telemetryConfidence">99.8%</span>
+                                    </div>
+                                    <div class="sim-metric-row">
+                                        <span class="sim-m-label">Sentimento do Cliente:</span>
+                                        <span class="sim-m-val sim-tag-green" id="telemetrySentiment">Positivo / Receptivo</span>
+                                    </div>
+                                    <div class="sim-metric-row">
+                                        <span class="sim-m-label">Ação Automática:</span>
+                                        <span class="sim-m-val" id="telemetryAction">Resposta Direta FAQ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ============================================================== -->
+                <!-- SOLUÇÃO 2: LEITURA DE NOTAS & CONCILIAÇÃO (SMART OCR) -->
+                <!-- ============================================================== -->
+                <section class="sim-pane" id="pane-app-1">
+                    <div class="sim-pane-header">
+                        <div>
+                            <span class="sim-pane-eyebrow">Solução 02 · Extração Financeira</span>
+                            <h2>Leitura de Notas Fiscais & Conciliação com IA</h2>
+                            <p>Envie ou selecione um documento fiscal modelo. A IA faz a leitura ótica de alta precisão (OCR), extrai dados tributários e prepara o lançamento contábil sem erro de digitação.</p>
+                        </div>
+                    </div>
+
+                    <div class="sim-ocr-grid">
+                        <!-- Seleção / Visualização do Documento -->
+                        <div class="sim-ocr-left">
+                            <div class="sim-card">
+                                <h3 class="sim-card-title">1. Escolha um Documento Modelo</h3>
+                                <div class="sim-doc-presets">
+                                    <button class="sim-doc-btn is-active" data-doc="0">
+                                        <span class="sim-doc-icon">📄</span>
+                                        <div class="sim-doc-meta">
+                                            <strong>NFS-e Consultoria em TI</strong>
+                                            <span>R$ 14.850,00 · São Paulo/SP</span>
+                                        </div>
+                                    </button>
+                                    <button class="sim-doc-btn" data-doc="1">
+                                        <span class="sim-doc-icon">📑</span>
+                                        <div class="sim-doc-meta">
+                                            <strong>NF-e Fornecedor Equipamentos</strong>
+                                            <span>R$ 42.300,00 · Curitiba/PR</span>
+                                        </div>
+                                    </button>
+                                    <button class="sim-doc-btn" data-doc="2">
+                                        <span class="sim-doc-icon">🧾</span>
+                                        <div class="sim-doc-meta">
+                                            <strong>Recibo Comercial de Aluguel</strong>
+                                            <span>R$ 3.800,00 · Porto Alegre/RS</span>
+                                        </div>
+                                    </button>
+                                </div>
+
+                                <div class="sim-doc-preview-box">
+                                    <div class="sim-scan-laser" id="scanLaser"></div>
+                                    <div class="sim-mock-invoice" id="mockInvoiceContent">
+                                        <!-- Preenchido dinamicamente pelo script -->
+                                    </div>
+                                </div>
+
+                                <button class="sim-btn-primary w-full" id="btnRunOcr">
+                                    <svg viewBox="0 0 24 24"><path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/></svg>
+                                    Processar Documento com IA
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Dados Extraídos & Conciliação -->
+                        <div class="sim-ocr-right">
+                            <div class="sim-card">
+                                <div class="sim-card-header-row">
+                                    <h3 class="sim-card-title">2. Dados Extraídos Estruturados</h3>
+                                    <span class="sim-badge-success" id="ocrStatusBadge">Concluído (1.1s)</span>
+                                </div>
+
+                                <div class="sim-extracted-grid" id="ocrExtractedData">
+                                    <!-- Preenchido dinamicamente -->
+                                </div>
+
+                                <div class="sim-reconciliation-box">
+                                    <h4>Lançamento de Conciliação Contábil Gerado</h4>
+                                    <div class="sim-code-block" id="ocrJsonOutput">
+                                        <!-- JSON gerado -->
+                                    </div>
+                                </div>
+
+                                <div class="sim-ocr-actions">
+                                    <button class="sim-btn-secondary" id="btnCopyOcr">
+                                        <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                                        Copiar JSON
+                                    </button>
+                                    <button class="sim-btn-primary" id="btnExportOcr">
+                                        <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                                        Exportar para ERP / Planilha
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ============================================================== -->
+                <!-- SOLUÇÃO 3: AGENDAMENTO & CALENDÁRIO AUTÔNOMO (SMART BOOKING) -->
+                <!-- ============================================================== -->
+                <section class="sim-pane" id="pane-app-2">
+                    <div class="sim-pane-header">
+                        <div>
+                            <span class="sim-pane-eyebrow">Solução 03 · Automação de Agenda</span>
+                            <h2>Agendamento Autônomo & Lembrete Anti-Falta</h2>
+                            <p>O cliente escolhe o serviço e o horário. O agente de IA reserva na agenda, envia convite do Google Meet e dispara a sequência de confirmação inteligente no WhatsApp.</p>
+                        </div>
+                    </div>
+
+                    <div class="sim-booking-grid">
+                        <!-- Formulário de Agendamento -->
+                        <div class="sim-booking-form-wrap">
+                            <div class="sim-card">
+                                <h3 class="sim-card-title">1. Selecione o Tipo de Reunião</h3>
+                                <div class="sim-service-options">
+                                    <label class="sim-service-radio is-selected">
+                                        <input type="radio" name="serviceType" value="diag" checked>
+                                        <div class="sim-service-card">
+                                            <strong>Diagnóstico de IA & Processos</strong>
+                                            <span>45 minutos · Google Meet · Gratuito</span>
+                                        </div>
+                                    </label>
+                                    <label class="sim-service-radio">
+                                        <input type="radio" name="serviceType" value="demo">
+                                        <div class="sim-service-card">
+                                            <strong>Demonstração Técnica da Solução</strong>
+                                            <span>30 minutos · Apresentação Prática</span>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <h3 class="sim-card-title" style="margin-top: 20px;">2. Escolha a Data e Horário Disponível</h3>
+                                <div class="sim-slots-grid" id="bookingSlots">
+                                    <button class="sim-slot-btn is-active" data-time="Amanhã às 09:30">Amanhã · 09:30</button>
+                                    <button class="sim-slot-btn" data-time="Amanhã às 14:00">Amanhã · 14:00</button>
+                                    <button class="sim-slot-btn" data-time="Amanhã às 16:30">Amanhã · 16:30</button>
+                                    <button class="sim-slot-btn" data-time="Quinta-feira às 10:00">Quinta · 10:00</button>
+                                    <button class="sim-slot-btn" data-time="Quinta-feira às 15:00">Quinta · 15:00</button>
+                                    <button class="sim-slot-btn" data-time="Sexta-feira às 11:30">Sexta · 11:30</button>
+                                </div>
+
+                                <h3 class="sim-card-title" style="margin-top: 20px;">3. Dados do Participante</h3>
+                                <div class="sim-form-fields">
+                                    <div class="sim-field">
+                                        <label>Nome Completo:</label>
+                                        <input type="text" id="bookName" value="Lucas Mendes">
+                                    </div>
+                                    <div class="sim-field">
+                                        <label>WhatsApp / Telefone:</label>
+                                        <input type="text" id="bookPhone" value="(11) 98765-4321">
+                                    </div>
+                                    <div class="sim-field">
+                                        <label>Empresa:</label>
+                                        <input type="text" id="bookCompany" value="LogTech Transportes">
+                                    </div>
+                                </div>
+
+                                <button class="sim-btn-primary w-full" id="btnConfirmBooking" style="margin-top: 20px;">
+                                    Confirmar Agendamento com IA
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Resultado: Sincronização e WhatsApp Automatizado -->
+                        <div class="sim-booking-result-wrap">
+                            <div class="sim-card">
+                                <h3 class="sim-card-title">Notificação & Lembrete Automático</h3>
+                                <div class="sim-booking-status-box" id="bookingConfirmedBox">
+                                    <div class="sim-booking-badge">✅ Agendamento Registrado na Agenda</div>
+                                    <div class="sim-booking-details">
+                                        <p><strong>Evento:</strong> <span id="resService">Diagnóstico de IA & Processos</span></p>
+                                        <p><strong>Data/Hora:</strong> <span id="resTime">Amanhã às 09:30</span></p>
+                                        <p><strong>Participante:</strong> <span id="resClient">Lucas Mendes (LogTech)</span></p>
+                                        <p><strong>Link:</strong> <code style="color: #6ee7b7;">meet.google.com/del-eon-ai</code></p>
+                                    </div>
+                                </div>
+
+                                <h4 style="margin-top: 16px; font-size: 0.9rem; color: #fff;">Mensagem disparada automaticamente no WhatsApp:</h4>
+                                <div class="sim-wa-bubble-preview" id="bookingWaPreview">
+                                    <p>Olá <strong>Lucas Mendes</strong>! Tudo bem?</p>
+                                    <p>Aqui é o assistente da <strong>DE LEON AI</strong>. Sua reunião de <strong>Diagnóstico de IA</strong> está confirmada para <strong>Amanhã às 09:30</strong> com Douglas De Leon.</p>
+                                    <p>🔗 Link da sala: <u>meet.google.com/del-eon-ai</u></p>
+                                    <p><em>Enviaremos um lembrete 1 hora antes para sua comodidade!</em></p>
+                                </div>
+
+                                <div class="sim-reminder-timeline">
+                                    <div class="sim-timeline-step is-done">
+                                        <span class="sim-tl-dot"></span>
+                                        <div><strong>Imediato:</strong> Confirmação e link no WhatsApp</div>
+                                    </div>
+                                    <div class="sim-timeline-step">
+                                        <span class="sim-tl-dot"></span>
+                                        <div><strong>24h antes:</strong> Lembrete de alinhamento com botão "Confirmar Presença"</div>
+                                    </div>
+                                    <div class="sim-timeline-step">
+                                        <span class="sim-tl-dot"></span>
+                                        <div><strong>15min antes:</strong> Envio do link direto na conversa</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ============================================================== -->
+                <!-- SOLUÇÃO 4: GERADOR DE PROPOSTAS & CONTRATOS (DOC GENERATOR) -->
+                <!-- ============================================================== -->
+                <section class="sim-pane" id="pane-app-3">
+                    <div class="sim-pane-header">
+                        <div>
+                            <span class="sim-pane-eyebrow">Solução 04 · Automação Comercial</span>
+                            <h2>Gerador Instantâneo de Propostas & Contratos em PDF</h2>
+                            <p>Preencha os dados do cliente ou utilize áudios de reunião transcritos. O motor de IA gera o escopo, cronograma, modelo de precificação e o contrato pronto para assinatura em 5 segundos.</p>
+                        </div>
+                    </div>
+
+                    <div class="sim-proposal-grid">
+                        <!-- Formulário de Parâmetros -->
+                        <div class="sim-prop-form">
+                            <div class="sim-card">
+                                <h3 class="sim-card-title">Parâmetros da Proposta</h3>
+                                
+                                <div class="sim-form-fields">
+                                    <div class="sim-field">
+                                        <label>Nome do Cliente / Empresa:</label>
+                                        <input type="text" id="propClient" value="Nexus Tech Soluções">
+                                    </div>
+                                    <div class="sim-field">
+                                        <label>Tipo de Solução Selecionada:</label>
+                                        <select id="propServiceType">
+                                            <option value="complete">Implementação Completa de Sistema Operacional de IA</option>
+                                            <option value="whatsapp">Agente WhatsApp 24/7 + Qualificador de Leads</option>
+                                            <option value="financial">Automação Financeira + Leitor OCR de Notas</option>
+                                            <option value="custom">Assessoria Customizada & Treinamento de Equipe</option>
+                                        </select>
+                                    </div>
+                                    <div class="sim-field">
+                                        <label>Prazo de Implementação Estimado:</label>
+                                        <input type="text" id="propTimeline" value="10 a 14 dias úteis">
+                                    </div>
+                                    <div class="sim-field">
+                                        <label>Investimento Proposto (R$):</label>
+                                        <input type="text" id="propPrice" value="R$ 7.800,00">
+                                    </div>
+                                </div>
+
+                                <div class="sim-audio-sim-box">
+                                    <div class="sim-audio-header">
+                                        <span>🎙️ Briefing de Reunião Transcrito por IA:</span>
+                                        <span class="sim-tag-cyan">Áudio 1:20 min</span>
+                                    </div>
+                                    <p class="sim-audio-text">"O cliente precisa automatizar o atendimento dos 300 leads diários no WhatsApp e integrar os dados no CRM sem perda de tempo..."</p>
+                                </div>
+
+                                <button class="sim-btn-primary w-full" id="btnGenerateProposal">
+                                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                                    Compilar Proposta & Contrato com IA
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Render do Documento / PDF -->
+                        <div class="sim-prop-preview">
+                            <div class="sim-card">
+                                <div class="sim-card-header-row">
+                                    <h3 class="sim-card-title">Documento Renderizado</h3>
+                                    <button class="sim-btn-secondary" id="btnPrintProposal" title="Imprimir ou Salvar em PDF">
+                                        <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                                        Salvar PDF
+                                    </button>
+                                </div>
+
+                                <div class="sim-pdf-sheet" id="renderedProposalSheet">
+                                    <div class="sim-pdf-header">
+                                        <span class="brand-badge-inline" style="font-size: 0.75rem;">DE LEON</span>
+                                        <span class="sim-pdf-doc-type">PROPOSTA COMERCIAL & ESCOPO TÉCNICO</span>
+                                    </div>
+
+                                    <div class="sim-pdf-client-meta">
+                                        <div><strong>CLIENTE:</strong> <span id="pdfClientName">Nexus Tech Soluções</span></div>
+                                        <div><strong>DATA:</strong> <span id="pdfDate">26/08/2026</span></div>
+                                        <div><strong>VERSÃO:</strong> v1.0 · Aprovada por IA</div>
+                                    </div>
+
+                                    <div class="sim-pdf-section">
+                                        <h4>1. Objetivo & Diagnóstico do Projeto</h4>
+                                        <p id="pdfObjective">Implementação de ecossistema autônomo com agentes inteligentes para eliminar gargalos de tempo e alavancar a capacidade produtiva da empresa contratante.</p>
+                                    </div>
+
+                                    <div class="sim-pdf-section">
+                                        <h4>2. Entregáveis & Escopo Técnico</h4>
+                                        <ul id="pdfDeliverables">
+                                            <li>Configuração de infraestrutura de IA e agentes com latência ultra-baixa;</li>
+                                            <li>Integração direta com o WhatsApp corporativo e sincronização com banco de dados;</li>
+                                            <li>Treinamento com documentação e políticas internas da empresa;</li>
+                                            <li>Dashboard de acompanhamento de métricas e suporte dedicado pós-lançamento.</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="sim-pdf-section">
+                                        <h4>3. Condições Comerciais & Prazo</h4>
+                                        <div class="sim-pdf-pricing-box">
+                                            <div><span>Investimento Total:</span> <strong id="pdfPriceDisplay">R$ 7.800,00</strong></div>
+                                            <div><span>Prazo de Entrega:</span> <strong id="pdfTimelineDisplay">10 a 14 dias úteis</strong></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="sim-pdf-signature-row">
+                                        <div class="sim-pdf-sig">
+                                            <div class="sim-sig-line"></div>
+                                            <span>Douglas De Leon · DE LEON AI</span>
+                                        </div>
+                                        <div class="sim-pdf-sig">
+                                            <div class="sim-sig-line"></div>
+                                            <span id="pdfSigClient">Nexus Tech Soluções</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ============================================================== -->
+                <!-- SOLUÇÃO 5: QUALIFICAÇÃO DE LEADS & CRM (LEAD SCORING) -->
+                <!-- ============================================================== -->
+                <section class="sim-pane" id="pane-app-4">
+                    <div class="sim-pane-header">
+                        <div>
+                            <span class="sim-pane-eyebrow">Solução 05 · Inteligência de Vendas</span>
+                            <h2>Qualificação de Leads & CRM Preditivo</h2>
+                            <p>A IA analisa o perfil, faturamento, mensagem inicial e urgência do prospect, calculando uma pontuação de 0 a 100 e gerando o roteiro de abordagem ideal para o time comercial fechar mais vendas.</p>
+                        </div>
+                    </div>
+
+                    <div class="sim-crm-layout">
+                        <!-- Kanban Pipeline -->
+                        <div class="sim-crm-left">
+                            <div class="sim-card">
+                                <div class="sim-card-header-row">
+                                    <h3 class="sim-card-title">Pipeline de Leads em Tempo Real</h3>
+                                    <button class="sim-btn-secondary" id="btnAddNewLead">
+                                        <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                                        Simular Novo Lead
+                                    </button>
+                                </div>
+
+                                <div class="sim-kanban-cols">
+                                    <div class="sim-kanban-col">
+                                        <div class="sim-k-head">
+                                            <span>Novos Inbound</span>
+                                            <span class="sim-k-count" id="countNew">2</span>
+                                        </div>
+                                        <div class="sim-k-cards" id="colNewLeads">
+                                            <!-- Cards de Leads -->
+                                        </div>
+                                    </div>
+
+                                    <div class="sim-kanban-col">
+                                        <div class="sim-k-head">
+                                            <span>🔥 Leads Quentes (Score > 80)</span>
+                                            <span class="sim-k-count" id="countHot">2</span>
+                                        </div>
+                                        <div class="sim-k-cards" id="colHotLeads">
+                                            <!-- Cards -->
+                                        </div>
+                                    </div>
+
+                                    <div class="sim-kanban-col">
+                                        <div class="sim-k-head">
+                                            <span>Em Negociação</span>
+                                            <span class="sim-k-count" id="countNeg">1</span>
+                                        </div>
+                                        <div class="sim-k-cards" id="colNegLeads">
+                                            <!-- Cards -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Painel de Detalhes e Roteiro de Vendas da IA -->
+                        <div class="sim-crm-right">
+                            <div class="sim-card" id="leadInspectPanel">
+                                <h3 class="sim-card-title">Análise Detalhada do Lead Selecionado</h3>
+                                
+                                <div class="sim-score-badge-row">
+                                    <div class="sim-score-circle" id="leadScoreCircle">98</div>
+                                    <div>
+                                        <h4 id="leadInspectName">Roberto Vieira · OmniScale</h4>
+                                        <span class="sim-tag-green" id="leadInspectStatus">🔥 Lead Quente / Prioridade Máxima</span>
+                                    </div>
+                                </div>
+
+                                <div class="sim-lead-breakdown">
+                                    <p><strong>Problema Central:</strong> <span id="leadInspectPain">Equipe de 20 pessoas gastando 3 horas por dia preenchendo relatórios manualmente.</span></p>
+                                    <p><strong>Fit com a Solução:</strong> <span id="leadInspectFit">Altíssimo. Potencial de ROI estimado em menos de 3 semanas.</span></p>
+                                    <p><strong>Orçamento Estimado:</strong> <span id="leadInspectBudget">R$ 15.000 a R$ 25.000</span></p>
+                                </div>
+
+                                <h4 style="margin-top: 16px; font-size: 0.9rem; color: #fff;">Abordagem Personalizada Gerada por IA:</h4>
+                                <div class="sim-pitch-box" id="leadPitchContent">
+                                    "Fala Roberto! Vi que a OmniScale está em forte expansão. Nós desenvolvemos sistemas de automação que eliminam exatamente essas 3 horas de digitação diária da sua equipe, integrando tudo de forma invisível. Que tal vermos uma demonstração prática de 15 minutos amanhã?"
+                                </div>
+
+                                <button class="sim-btn-primary w-full" id="btnCopyPitch" style="margin-top: 16px;">
+                                    <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                                    Copiar Roteiro de Abordagem para WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ============================================================== -->
+                <!-- SOLUÇÃO 6: DASHBOARD EXECUTIVO & RESUMOS DIÁRIOS (BI INSIGHTS) -->
+                <!-- ============================================================== -->
+                <section class="sim-pane" id="pane-app-5">
+                    <div class="sim-pane-header">
+                        <div>
+                            <span class="sim-pane-eyebrow">Solução 06 · Gestão & BI</span>
+                            <h2>Dashboard Executivo & Briefing Diário por IA</h2>
+                            <p>Monitore os indicadores chave da empresa em tempo real e gere o briefing consolidado com gargalos e oportunidades para envio direto no WhatsApp da diretoria.</p>
+                        </div>
+                        <div class="sim-pane-actions">
+                            <button class="sim-btn-primary" id="btnGenerateExecutiveDigest">
+                                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                                Gerar Resumo Diário para WhatsApp
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Métricas KPI -->
+                    <div class="sim-kpi-grid">
+                        <div class="sim-kpi-card">
+                            <span class="sim-kpi-label">Faturamento do Mês</span>
+                            <div class="sim-kpi-value">R$ 184.500,00</div>
+                            <span class="sim-kpi-trend sim-tag-green">+28.4% vs mês anterior</span>
+                        </div>
+                        <div class="sim-kpi-card">
+                            <span class="sim-kpi-label">Economia Gerada por IA</span>
+                            <div class="sim-kpi-value">R$ 42.300,00</div>
+                            <span class="sim-kpi-trend sim-tag-cyan">340 horas manuais poupadas</span>
+                        </div>
+                        <div class="sim-kpi-card">
+                            <span class="sim-kpi-label">Atendimentos Automatizados</span>
+                            <div class="sim-kpi-value">1.482</div>
+                            <span class="sim-kpi-trend sim-tag-green">94.2% resolvidos sem humano</span>
+                        </div>
+                        <div class="sim-kpi-card">
+                            <span class="sim-kpi-label">Taxa de Conversão de Leads</span>
+                            <div class="sim-kpi-value">38.5%</div>
+                            <span class="sim-kpi-trend sim-tag-green">+14% após o qualificador</span>
+                        </div>
+                    </div>
+
+                    <div class="sim-exec-grid">
+                        <!-- Painel de Gargalos e Ações da IA -->
+                        <div class="sim-card">
+                            <h3 class="sim-card-title">Detecção de Gargalos Operacionais</h3>
+                            <div class="sim-bottlenecks-list">
+                                <div class="sim-bn-item">
+                                    <span class="sim-bn-badge sim-bn-alert">Atenção</span>
+                                    <div>
+                                        <strong>Pico de mensagens no WhatsApp às 19:30:</strong>
+                                        <p>O agente autônomo assumiu 100% dos 48 chamados fora do horário comercial, retendo 6 novos agendamentos.</p>
+                                    </div>
+                                </div>
+                                <div class="sim-bn-item">
+                                    <span class="sim-bn-badge sim-bn-info">Otimização</span>
+                                    <div>
+                                        <strong>Conciliação de Notas Fiscais Concluída:</strong>
+                                        <p>124 notas processadas hoje sem nenhuma inconsistência de CNPJ ou valor contábil.</p>
+                                    </div>
+                                </div>
+                                <div class="sim-bn-item">
+                                    <span class="sim-bn-badge sim-bn-success">Oportunidade</span>
+                                    <div>
+                                        <strong>12 Leads com Score > 90 aguardando retorno de proposta:</strong>
+                                        <p>Disparos automáticos de follow-up preparados para as 14:00.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Briefing Executivo para WhatsApp -->
+                        <div class="sim-card">
+                            <h3 class="sim-card-title">Briefing Executivo para Sócios / Diretoria</h3>
+                            <p class="sim-card-desc">Texto gerado pela IA consolidando a saúde do negócio para leitura em 60 segundos no celular:</p>
+                            
+                            <div class="sim-exec-wa-box" id="execDigestOutput">
+                                📊 *RESUMO EXECUTIVO DIÁRIO · DE LEON AI*
+                                📅 *Data:* 26/08/2026 · 18:00
+
+                                🚀 *Desempenho Geral:*
+                                • Faturamento Hoje: *R$ 14.850,00* (Meta atingida: 112%)
+                                • Atendimentos Automatizados: *142 conversas* (Tempo médio resposta: 3 seg)
+                                • Reuniões Agendadas com IA: *8 novos diagnósticos*
+
+                                💡 *Ações Recomendadas da IA:*
+                                1. Aprovar envio de 4 propostas prioritárias no módulo comercial;
+                                2. Estoque de suprimentos em nível ótimo com conciliação automática;
+                                3. Manter campanha de atração ativa — ROI estável em 6.2x.
+
+                                _Gerado automaticamente pelo sistema DE LEON OS._
+                            </div>
+
+                            <div class="sim-exec-actions">
+                                <button class="sim-btn-primary w-full" id="btnCopyExecDigest">
+                                    <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                                    Copiar Briefing para WhatsApp
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Script com lógica e interatividade de todas as 6 soluções -->
+    <script src="simulador.js"></script>
+</body>
+</html>

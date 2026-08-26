@@ -1,4 +1,4 @@
-﻿// ============ INTRO OVERLAY CLEANUP ============
+// ============ INTRO OVERLAY CLEANUP ============
 (() => {
     const overlay = document.getElementById('introOverlay');
     if (!overlay) {
@@ -264,13 +264,13 @@ if ('IntersectionObserver' in window) {
 
     // Commands matched to each folder (same order as items)
     const PROMPTS = [
-        'De LeOn load _contexto/',
-        'De LeOn sync clientes/nike',
-        'De LeOn build marca/ --tokens',
-        'De LeOn generate carrossel',
-        'De LeOn deploy ads --google',
-        'De LeOn export proposta',
-        'De LeOn invoke skills/carrossel'
+        'DE LEON load _contexto/',
+        'DE LEON sync clientes/nike',
+        'DE LEON build marca/ --tokens',
+        'DE LEON generate carrossel',
+        'DE LEON deploy ads --google',
+        'DE LEON export proposta',
+        'DE LEON invoke skills/carrossel'
     ];
 
     const defaultIdx = Math.max(0, [...items].findIndex(it => it.dataset.default === 'open'));
@@ -308,15 +308,16 @@ if ('IntersectionObserver' in window) {
     })[c]);
 
     const colorizePrompt = (text) => {
-        const tokens = text.split(/(\s+)/);
-        let first = true;
-        return tokens.map(tok => {
+        let remainder = text;
+        let prefix = '';
+        if (remainder.startsWith('DE LEON')) {
+            prefix = '<span class="brand-badge-inline">DE LEON</span>';
+            remainder = remainder.slice(7);
+        }
+        const tokens = remainder.split(/(\s+)/);
+        const rest = tokens.map(tok => {
             if (!tok) return '';
             if (/^\s+$/.test(tok)) return tok;
-            if (first) {
-                first = false;
-                return `<span class="prompt-cmd-bin">${escapeHtml(tok)}</span>`;
-            }
             if (tok.startsWith('-')) {
                 return `<span class="prompt-flag">${escapeHtml(tok)}</span>`;
             }
@@ -325,6 +326,7 @@ if ('IntersectionObserver' in window) {
             }
             return `<span class="prompt-arg">${escapeHtml(tok)}</span>`;
         }).join('');
+        return prefix + rest;
     };
 
     let typeTimer;
@@ -418,108 +420,136 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ============ TABLETS: fotos das aulas + auto-slide fluido no mobile ============
+// ============ TABLETS SHOWCASE: 6 TECNOLOGIAS DE IA ============
 (() => {
     const stage = document.getElementById('tabletsStage');
     if (!stage) return;
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const mobile = window.matchMedia('(max-width: 900px)');
     const tablets = Array.from(stage.querySelectorAll('.tablet'));
-    if (tablets.length < 2 || reduced) return;
+    const tabBtns = Array.from(document.querySelectorAll('.tech-tab-btn'));
+    const dots = Array.from(document.querySelectorAll('.tablet-dot'));
+    const prevBtn = document.getElementById('tabletPrevBtn');
+    const nextBtn = document.getElementById('tabletNextBtn');
 
-    // clone do primeiro tablet no fim da fita: permite loop infinito
-    // sempre da direita pra esquerda, sem varrida de volta
-    let all = tablets;
-    if (mobile.matches) {
-        const clone = tablets[0].cloneNode(true);
-        clone.classList.add('tablet-clone');
-        clone.setAttribute('aria-hidden', 'true');
-        stage.appendChild(clone);
-        all = tablets.concat([clone]);
-    }
+    if (!tablets.length) return;
 
-    // pausa o auto-slide quando o usuário interage, retoma depois
-    let pausedUntil = 0;
-    ['pointerdown', 'touchstart', 'wheel'].forEach((ev) =>
-        stage.addEventListener(ev, () => { pausedUntil = Date.now() + 8000; }, { passive: true })
-    );
+    let currentIndex = 0;
+    const total = tablets.length;
+    let autoPlayTimer = null;
+    let pauseUntil = 0;
 
-    const centerOf = (t) => t.offsetLeft - (stage.clientWidth - t.clientWidth) / 2;
+    const updateClasses = (index) => {
+        currentIndex = (index + total) % total;
+        const prevIndex = (currentIndex - 1 + total) % total;
+        const nextIndex = (currentIndex + 1) % total;
 
-    const nearestIndex = () => {
-        let best = 0;
-        let bestDist = Infinity;
-        all.forEach((t, i) => {
-            const d = Math.abs(centerOf(t) - stage.scrollLeft);
-            if (d < bestDist) { bestDist = d; best = i; }
+        tablets.forEach((t, i) => {
+            t.classList.remove('is-active', 'is-prev', 'is-next');
+            if (i === currentIndex) {
+                t.classList.add('is-active');
+            } else if (i === prevIndex) {
+                t.classList.add('is-prev');
+            } else if (i === nextIndex) {
+                t.classList.add('is-next');
+            }
         });
-        return best;
-    };
 
-    // animação manual: o scroll-snap do iOS cancela o scrollTo suave,
-    // então o snap desliga durante o movimento e a rolagem é animada na mão
-    const animateTo = (target) => {
-        const start = stage.scrollLeft;
-        const dist = target - start;
-        if (Math.abs(dist) < 2) return;
-        const dur = 650;
-        const t0 = performance.now();
-        stage.style.scrollSnapType = 'none';
-        const step = (now) => {
-            const p = Math.min(1, (now - t0) / dur);
-            const ease = 1 - Math.pow(1 - p, 3);
-            stage.scrollLeft = start + dist * ease;
-            if (p < 1) requestAnimationFrame(step);
-            else setTimeout(() => { stage.style.scrollSnapType = ''; }, 60);
-        };
-        requestAnimationFrame(step);
-    };
+        tabBtns.forEach((btn, i) => {
+            const active = i === currentIndex;
+            btn.classList.toggle('is-active', active);
+            btn.setAttribute('aria-selected', active ? 'true' : 'false');
+            if (active && window.innerWidth <= 900) {
+                btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+        });
 
-    setInterval(() => {
-        if (!mobile.matches) return;
-        if (Date.now() < pausedUntil) return;
-        const cur = nearestIndex();
-        if (cur >= all.length - 1) {
-            // está no clone: salto invisível pro primeiro e segue em frente
-            stage.style.scrollSnapType = 'none';
-            stage.scrollLeft = centerOf(all[0]);
-            requestAnimationFrame(() => {
-                stage.style.scrollSnapType = '';
-                animateTo(centerOf(all[1]));
-            });
-        } else {
-            animateTo(centerOf(all[cur + 1]));
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('is-active', i === currentIndex);
+        });
+
+        // Mobile scroll sync
+        if (window.innerWidth <= 900) {
+            const activeTablet = tablets[currentIndex];
+            if (activeTablet) {
+                const targetLeft = activeTablet.offsetLeft - (stage.clientWidth - activeTablet.clientWidth) / 2;
+                stage.scrollTo({ left: targetLeft, behavior: 'smooth' });
+            }
         }
-    }, 3500);
-})();
+    };
 
-// ============ TABLETS: alterna as fotos extras dentro dos tablets ============
-(() => {
-    const pools = [
-        ['assets/a11da237-2519-4965-8b9f-5b6f2263f5c9.jpg'],
-        ['assets/Screenshot at May 13 16-24-07.png'],
-        ['assets/f854894a-de6b-48e5-9347-527ec30f1dfa.jpg'],
-    ];
-    // no celular NÃO existe troca interna: o carrossel é só o deslize entre iPads
-    if (window.matchMedia('(max-width: 900px)').matches) return;
-    const imgs = document.querySelectorAll('.tablet-frame img');
-    if (imgs.length < 3) return;
-    pools.flat().forEach((s) => { const im = new Image(); im.src = s; });
-    imgs.forEach((img, i) => {
-        if (i > 2) return;
-        if (pools[i].length < 2) return;
-        let k = 0;
-        setTimeout(() => {
-            setInterval(() => {
-                // no celular o carrossel é o deslize entre tablets; a troca interna fica só no desktop
-                if (window.matchMedia('(max-width: 900px)').matches) return;
-                k = (k + 1) % pools[i].length;
-                img.style.opacity = '0';
-                setTimeout(() => { img.src = pools[i][k]; img.style.opacity = '1'; }, 450);
-            }, 7000);
-        }, 1500 + i * 2300);
+    const goToSlide = (idx) => {
+        pauseUntil = Date.now() + 7000;
+        updateClasses(idx);
+    };
+
+    // Tabs click
+    tabBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const idx = parseInt(btn.dataset.index, 10);
+            if (!isNaN(idx)) goToSlide(idx);
+        });
     });
+
+    // Dots click
+    dots.forEach((dot) => {
+        dot.addEventListener('click', () => {
+            const idx = parseInt(dot.dataset.index, 10);
+            if (!isNaN(idx)) goToSlide(idx);
+        });
+    });
+
+    // Arrows
+    if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+    if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+
+    // Clicking prev/next tablet on desktop
+    tablets.forEach((t, i) => {
+        t.addEventListener('click', () => {
+            if (t.classList.contains('is-prev') || t.classList.contains('is-next')) {
+                goToSlide(i);
+            }
+        });
+    });
+
+    // Mobile scroll detection
+    let scrollTimeout;
+    stage.addEventListener('scroll', () => {
+        if (window.innerWidth > 900) return;
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(() => {
+            const center = stage.scrollLeft + stage.clientWidth / 2;
+            let closestIdx = 0;
+            let closestDist = Infinity;
+            tablets.forEach((t, i) => {
+                const tCenter = t.offsetLeft + t.clientWidth / 2;
+                const dist = Math.abs(tCenter - center);
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closestIdx = i;
+                }
+            });
+            if (closestIdx !== currentIndex) {
+                currentIndex = closestIdx;
+                tabBtns.forEach((btn, i) => btn.classList.toggle('is-active', i === currentIndex));
+                dots.forEach((dot, i) => dot.classList.toggle('is-active', i === currentIndex));
+            }
+        }, 80);
+    }, { passive: true });
+
+    // Interaction pause
+    ['pointerdown', 'touchstart', 'mouseenter'].forEach((ev) => {
+        stage.addEventListener(ev, () => { pauseUntil = Date.now() + 8000; }, { passive: true });
+    });
+
+    // Autoplay
+    autoPlayTimer = setInterval(() => {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (Date.now() < pauseUntil) return;
+        updateClasses(currentIndex + 1);
+    }, 4800);
+
+    // Initial setup
+    updateClasses(0);
 })();
 
 // ============ PROVAS: ver mais resultados ============
