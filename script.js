@@ -237,6 +237,85 @@ if ('IntersectionObserver' in window) {
     revealTargets.forEach(el => el.classList.add('visible'));
 }
 
+// ============ TYPING EFFECT ON TEXTS ============
+(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) return;
+
+    const targets = document.querySelectorAll('.type-animate');
+    
+    // Store original HTML and clear to prevent full text flash, but set min-height
+    targets.forEach(el => {
+        el.dataset.origHtml = el.innerHTML.trim();
+        const rect = el.getBoundingClientRect();
+        if (rect.height > 0) el.style.minHeight = rect.height + 'px';
+        el.innerHTML = ''; 
+    });
+
+    const typeHTML = (element, speed = 12) => {
+        if (element.dataset.typed === 'true') return;
+        element.dataset.typed = 'true';
+        
+        const html = element.dataset.origHtml || '';
+        let i = 0;
+        let isTag = false;
+        let currentHTML = '';
+        
+        const tick = () => {
+            if (i < html.length) {
+                currentHTML += html.charAt(i);
+                if (html.charAt(i) === '<') isTag = true;
+                if (html.charAt(i) === '>') isTag = false;
+                
+                i++;
+                if (isTag) {
+                    tick(); // Skip delay for tags
+                } else {
+                    element.innerHTML = currentHTML + '<span class="prompt-cursor"></span>';
+                    setTimeout(tick, speed + Math.random() * speed);
+                }
+            } else {
+                element.innerHTML = currentHTML;
+                element.style.minHeight = '';
+            }
+        };
+        // Small delay before starting for natural feel
+        setTimeout(tick, 250);
+    };
+
+    // Trigger on scroll
+    if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Only type if it's not inside a closed details element
+                    const parentDetails = entry.target.closest('details');
+                    if (!parentDetails || parentDetails.open) {
+                        typeHTML(entry.target);
+                        io.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+
+        targets.forEach(el => io.observe(el));
+    } else {
+        targets.forEach(el => {
+            el.innerHTML = el.dataset.origHtml || '';
+        });
+    }
+
+    // Trigger on FAQ toggle (for texts inside <details>)
+    document.querySelectorAll('details').forEach(detail => {
+        detail.addEventListener('toggle', () => {
+            if (detail.open) {
+                const animates = detail.querySelectorAll('.type-animate');
+                animates.forEach(el => typeHTML(el));
+            }
+        });
+    });
+})();
+
 // ============ FILE ICON COLOR BY EXTENSION ============
 (() => {
     const tree = document.getElementById('folderTree');
